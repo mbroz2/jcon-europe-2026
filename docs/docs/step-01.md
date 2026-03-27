@@ -1,16 +1,14 @@
 # Step 01 - Implementing AI Agents
 
-## Welcome to Section 2: Agentic Systems
+## Welcome to Agentic Systems
 
-Congratulations on completing Section 1! You've learned how to build AI-infused applications with chatbots, RAG patterns, and function calling.
-
-In **Section 2**, we're shifting gears to explore **agentic systems** — autonomous AI agents that can work together to solve complex, multi-step problems. Instead of a chatbot responding to user queries, you'll build agents that can make decisions, use tools, and collaborate in workflows.
+Welcome to this workshop on **agentic systems** — autonomous AI agents that can work together to solve complex, multi-step problems. You'll build agents that can make decisions, use tools, and collaborate in workflows.
 
 ### What You'll Learn
 
-In this section, you will:
+In this workshop, you will:
 
-- Understand the difference between **AI Services** (Section 1) and **AI Agents** (Section 2)
+- Understand the difference between **AI Services** and **AI Agents**
 - Build your first autonomous agent using the `quarkus-langchain4j-agentic` module
 - Learn how agents use tools (_function calling_) to take actions
 - See agents make decisions based on contextual information
@@ -35,7 +33,7 @@ Your job is to build an **AI agent** that can analyze feedback and _intelligentl
 
 Before diving in, let's clarify some key differences:
 
-| Feature         | AI Services (Section 1)                         | AI Agents (Section 2)                                                                                                                                                                                                            |
+| Feature         | AI Services                                     | AI Agents                                                                                                                                                                                                                        |
 |-----------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Purpose**     | Answer user questions                           | Perform autonomous tasks                                                                                                                                                                                                         |
 | **Interaction** | Reactive (responds to prompts)                  | Reactive and Proactive (takes actions)                                                                                                                                                                                           |
@@ -44,7 +42,7 @@ Before diving in, let's clarify some key differences:
 | **Annotation**  | Methods use `@SystemMessage` and `@UserMessage` | One method per interface (using `@Agent`)                                                                                                                                                                                        |
 | **Use Cases**   | Chatbots, Q&A, content generation               | Automation, decision-making, orchestration                                                                                                                                                                                       |
 
-In this section, you'll see how agents extend the capabilities you created in Section 1 to build sophisticated, intelligent, and autonomous systems.
+In this workshop, you'll learn how to build sophisticated, intelligent, and autonomous systems using AI agents.
 
 ---
 
@@ -52,26 +50,26 @@ In this section, you'll see how agents extend the capabilities you created in Se
 
 Before starting, ensure you have:
 
-- Completed Section 1 (or you are familiar with Quarkus LangChain4j basics)
 - JDK 21+ installed
 - OpenAI API key set as `OPENAI_API_KEY` environment variable
-- A container runtime (Docker/Podman) for running a PostgreSQL [Dev Service](https://quarkus.io/guides/databases-dev-services)
+- A container runtime (Docker/Podman) for running a PostgreSQL [Dev Service](https://mbroz2.github.io/guides/databases-dev-services)
+- Basic familiarity with Java and REST APIs
 
 ---
 
 ## Running the Application
 
-Navigate to the `section-2/step-01` directory and start the application:
+Navigate to the `step-01` directory and start the application:
 
 === "Linux / macOS"
     ```bash
-    cd section-2/step-01
+    cd step-01
     ./mvnw quarkus:dev
     ```
 
 === "Windows"
     ```cmd
-    cd section-2\step-01
+    cd \step-01
     mvnw quarkus:dev
     ```
 
@@ -157,13 +155,13 @@ If you open the `pom.xml` file from the project, you will see this dependency:
 
 ### Key Concepts
 
-Agents share similarities with AI Services from [Section 1](../section-1/step-01.md){target="_blank"}:
+Agents in Quarkus LangChain4j:
 
 - Declared as interfaces (implementation generated automatically)
 - Use `@SystemMessage` to define the agent's role and behavior
 - Use `@UserMessage` to provide request-specific context
 - Can be assigned **tools** to perform actions
-- Support both programmatic and declarative (annotation-based) definitions, even if in Quarkus, we recommend the declarative approach
+- Support both programmatic and declarative (annotation-based) definitions, though in Quarkus, we recommend the declarative approach
 
 ### Key Differences
 
@@ -193,7 +191,7 @@ Let's explore each component.
 The `CarManagementResource` provides REST APIs to handle car returns:
 
 ```java hl_lines="19 22 41 44" title="CarManagementResource.java"
---8<-- "../../section-2/step-01/src/main/java/com/carmanagement/resource/CarManagementResource.java:car-management"
+--8<-- "../../step-01/src/main/java/com/carmanagement/resource/CarManagementResource.java:car-management"
 ```
 
 **Key Points:**
@@ -209,7 +207,7 @@ The `CarManagementResource` provides REST APIs to handle car returns:
 The `CarManagementService` orchestrates the car return process:
 
 ```java hl_lines="10 16-28" title="CarManagementService.java"
---8<-- "../../section-2/step-01/src/main/java/com/carmanagement/service/CarManagementService.java:processCarReturn"
+--8<-- "../../step-01/src/main/java/com/carmanagement/service/CarManagementService.java:processCarReturn"
 ```
 
 **Key Points:**
@@ -228,7 +226,7 @@ This simple pattern allows you to ***integrate autonomous decision-making into y
 Here's where the *magic* happens — the AI agent definition:
 
 ```java hl_lines="6-11 23-24" title="CleaningAgent.java"
---8<-- "../../section-2/step-01/src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java:cleaningAgent"
+--8<-- "../../step-01/src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java:cleaningAgent"
 ```
 
 **Let's break it down:**
@@ -267,7 +265,7 @@ Marks this as an **agent method** — only one per interface.
 Assigns the `CleaningTool` to this agent:
 
 - The agent can call methods in this tool to perform actions
-- The LLM decides when and how to use the tool based on the task (function calling has been covered in the Section 1 of the workshop)
+- The LLM decides when and how to use the tool based on the task
 
 ### Method Signature
 Defines the inputs and output:
@@ -287,12 +285,12 @@ Defines the inputs and output:
 
 ## Component 4: The CleaningTool
 
-If you went through Section 1, you'll remember that we already covered [tool and function calling](../section-1/step-07.md){target="_blank"} for single AI services.
-They work in pretty much the exact same way for Agents: Tools enable agents to call functions that can take action.
-These tools can be local, like in the following `CleaningTool` example, or remote, using the [MCP protocol we visited in Section 1, Step 8](../section-1/step-08.md){target="_blank"}..
+Tools enable agents to call functions that can take action. These tools can be local, like in the following `CleaningTool` example, or remote (using protocols like MCP - Model Context Protocol).
+
+The concept is similar to function calling in AI services: the LLM decides when to invoke a tool based on the task at hand, and the tool performs the actual action.
 
 ```java hl_lines="4 21 40 47-48" title="CleaningTool.java"
---8<-- "../../section-2/step-01/src/main/java/com/carmanagement/agentic/tools/CleaningTool.java:CleaningTool"
+--8<-- "../../step-01/src/main/java/com/carmanagement/agentic/tools/CleaningTool.java:CleaningTool"
 ```
 
 **Key Points:**

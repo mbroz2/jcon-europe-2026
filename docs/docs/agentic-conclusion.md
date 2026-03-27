@@ -283,10 +283,10 @@ Agent Analysis → Proposal Creation → Human Review → Conditional Execution
 
 ## From AI Services to Agentic Systems
 
-Remember Section 1, where you built traditional AI services? Here's how agentic systems differ:
+Here's how agentic systems differ from traditional AI services:
 
-| Aspect | AI Services (Section 1) | Agentic Systems (Section 2) |
-|--------|------------------------|----------------------------|
+| Aspect | Traditional AI Services | Agentic Systems |
+|--------|------------------------|-----------------|
 | **Autonomy** | None (deterministic method calls) | Agents choose when to use tools |
 | **Composition** | Manual orchestration in code | Declarative workflows |
 | **Structure** | Flat service calls | Nested, composable workflows |

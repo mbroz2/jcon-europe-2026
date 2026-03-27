@@ -171,7 +171,7 @@ This agent creates disposition proposals that will be reviewed by humans.
 Create `src/main/java/com/carmanagement/agentic/agents/DispositionProposalAgent.java`:
 
 ```java title="DispositionProposalAgent.java" hl_lines="14-29 38-48 51"
---8<-- "../../section-2/step-06/src/main/java/com/carmanagement/agentic/agents/DispositionProposalAgent.java"
+--8<-- "../../step-06/src/main/java/com/carmanagement/agentic/agents/DispositionProposalAgent.java"
 ```
 
 !!! note "Why two disposition agents?"
@@ -191,7 +191,7 @@ This agent implements Human-in-the-Loop using LangChain4j's **`@HumanInTheLoop`*
 Create `src/main/java/com/carmanagement/agentic/agents/HumanApprovalAgent.java`:
 
 ```java title="HumanApprovalAgent.java" hl_lines="6 17"
---8<-- "../../section-2/step-06/src/main/java/com/carmanagement/agentic/agents/HumanApprovalAgent.java"
+--8<-- "../../step-06/src/main/java/com/carmanagement/agentic/agents/HumanApprovalAgent.java"
 ```
 
 **Key Points:**
@@ -215,7 +215,7 @@ The `ApprovalService` manages the `CompletableFuture` instances that pause and r
 Create `src/main/java/com/carmanagement/service/ApprovalService.java`:
 
 ```java title="ApprovalService.java"
---8<-- "../../section-2/step-06/src/main/java/com/carmanagement/service/ApprovalService.java"
+--8<-- "../../step-06/src/main/java/com/carmanagement/service/ApprovalService.java"
 ```
 
 **Key Points:**
@@ -233,7 +233,7 @@ This entity stores proposals in the database so the UI can display them.
 Create `src/main/java/com/carmanagement/model/ApprovalProposal.java`:
 
 ```java title="ApprovalProposal.java"
---8<-- "../../section-2/step-06/src/main/java/com/carmanagement/model/ApprovalProposal.java"
+--8<-- "../../step-06/src/main/java/com/carmanagement/model/ApprovalProposal.java"
 ```
 
 ### Create the ApprovalResource
@@ -243,7 +243,7 @@ This REST resource allows the UI to fetch pending approvals and submit decisions
 Create `src/main/java/com/carmanagement/resource/ApprovalResource.java`:
 
 ```java title="ApprovalResource.java"
---8<-- "../../section-2/step-06/src/main/java/com/carmanagement/resource/ApprovalResource.java"
+--8<-- "../../step-06/src/main/java/com/carmanagement/resource/ApprovalResource.java"
 ```
 
 **REST API Endpoints:**
@@ -270,7 +270,7 @@ Modify the supervisor to implement value-based routing with the approval workflo
 Update `src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java`:
 
 ```java title="FleetSupervisorAgent.java" hl_lines="10 24-35 40-46 49-51"
---8<-- "../../section-2/step-06/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java"
+--8<-- "../../step-06/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java"
 ```
 
 **Key Changes:**
@@ -288,7 +288,7 @@ Add approval tracking fields to the data model.
 Update `src/main/java/com/carmanagement/model/CarConditions.java`:
 
 ```java title="CarConditions.java" hl_lines="8-9 11-15 20-22"
---8<-- "../../section-2/step-06/src/main/java/com/carmanagement/model/CarConditions.java"
+--8<-- "../../step-06/src/main/java/com/carmanagement/model/CarConditions.java"
 ```
 
 **Key Points:**
@@ -330,7 +330,7 @@ Now let's see the Human-in-the-Loop pattern in action!
     **To start the remote service:**
 
     ```bash
-    cd section-2/step-05/remote-a2a-agent
+    cd step-05/remote-a2a-agent
     ./mvnw quarkus:dev
     ```
 
@@ -341,7 +341,7 @@ Now let's see the Human-in-the-Loop pattern in action!
 1. Navigate to the step-06 directory:
 
 ```bash
-cd section-2/step-06
+cd step-06
 ```
 
 2. Start the application:
@@ -574,14 +574,14 @@ graph LR
 If you want hands-on practice implementing the HITL pattern, you can build it step-by-step.
 
 !!!warning "Short on time?"
-    The complete solution is available in `section-2/step-06`.
+    The complete solution is available in `step-06`.
     You can explore the code there if you prefer to move forward quickly.
 
 ### Prerequisites
 
 Before starting:
 
-- Completed [Step 05](step-05.md){target="_blank"} (or have the `section-2/step-05/multi-agent-system` code available)
+- Completed [Step 05](step-05.md){target="_blank"} (or have the `step-05/multi-agent-system` code available)
 - Application from Step 05 is stopped (Ctrl+C)
 
 ### Implementation Steps

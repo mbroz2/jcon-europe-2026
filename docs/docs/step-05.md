@@ -184,7 +184,7 @@ Before starting:
 The Step 05 code includes **two separate Quarkus applications**:
 
 ```
-section-2/step-05/
+step-05/
 ├── multi-agent-system/          # Main car management application (port 8080)
 │   ├── src/main/java/com/carmanagement/
 │   │   ├── agentic/
@@ -221,10 +221,10 @@ section-2/step-05/
 
 === "Option 2: Start Fresh from Step 05 [Recommended]"
 
-    Navigate to the complete `section-2/step-05/multi-agent-system` directory:
+    Navigate to the complete `step-05/multi-agent-system` directory:
     
     ```bash
-    cd section-2/step-05/multi-agent-system
+    cd step-05/multi-agent-system
     ```
 
 === "Option 1: Continue from Step 04"
@@ -276,7 +276,7 @@ The only change needed in the main application is converting the `DispositionAge
 In `src/main/java/com/carmanagement/agentic/agents`, update `DispositionAgent.java`:
 
 ```java hl_lines="13" title="DispositionAgent.java"
---8<-- "../../section-2/step-05/multi-agent-system/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java"
+--8<-- "../../step-05/multi-agent-system/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java"
 ```
 
 **Let's break it down:**
@@ -330,7 +330,7 @@ Now let's build the remote disposition service that will handle A2A requests fro
 Navigate to the remote-a2a-agent directory:
 
 ```bash
-cd section-2/step-05/remote-a2a-agent
+cd step-05/remote-a2a-agent
 ```
 
 ### Step 2: Create the DispositionTool
@@ -340,7 +340,7 @@ The tool that executes disposition actions (scrap, sell, donate).
 In `src/main/java/com/demo`, create `DispositionTool.java`:
 
 ```java title="DispositionTool.java"
---8<-- "../../section-2/step-05/remote-a2a-agent/src/main/java/com/demo/DispositionTool.java"
+--8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionTool.java"
 ```
 
 **Key Points:**
@@ -356,7 +356,7 @@ The AI agent that actually makes disposition decisions.
 In `src/main/java/com/demo`, create `DispositionAgent.java`:
 
 ```java title="DispositionAgent.java"
---8<-- "../../section-2/step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgent.java"
+--8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgent.java"
 ```
 
 **Key Points:**
@@ -368,8 +368,8 @@ In `src/main/java/com/demo`, create `DispositionAgent.java`:
 - **Decision logic**: Identical to step-04 - considers value, age, condition, and damage
 
 !!!note "AI Service vs. Agentic Agent"
-    Notice this is a **traditional AI service** (from Section 1), not an agentic workflow. 
-    The A2A server can expose both types.
+    Notice this is a **traditional AI service**, not an agentic workflow.
+    The A2A server can expose both types - traditional AI services and agentic workflows.
 
 ### Step 4: Create the AgentCard
 
@@ -378,7 +378,7 @@ The **AgentCard** describes the agent's capabilities, skills, and interface.
 In `src/main/java/com/demo`, create `DispositionAgentCard.java`:
 
 ```java hl_lines="19-21" title="DispositionAgentCard.java"
---8<-- "../../section-2/step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgentCard.java"
+--8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgentCard.java"
 ```
 
 **Let's break it down:**
@@ -441,7 +441,7 @@ The **AgentExecutor** handles incoming A2A requests and orchestrates the AI agen
 In `src/main/java/com/demo`, create `DispositionAgentExecutor.java`:
 
 ```java title="DispositionAgentExecutor.java"
---8<-- "../../section-2/step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgentExecutor.java"
+--8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgentExecutor.java"
 ```
 
 **Let's break it down:**
@@ -528,7 +528,7 @@ You'll need to run **two applications simultaneously**.
 ### Terminal 1: Start the Remote A2A Server
 
 ```bash
-cd section-2/step-05/remote-a2a-agent
+cd step-05/remote-a2a-agent
 ./mvnw quarkus:dev
 ```
 
@@ -544,7 +544,7 @@ The disposition service is now running and ready to accept A2A requests!
 Open a **new terminal** and run:
 
 ```bash
-cd section-2/step-05/multi-agent-system
+cd step-05/multi-agent-system
 ./mvnw quarkus:dev
 ```
 

@@ -3,8 +3,7 @@
 ## Agentic Workflows
 
 In the previous step, you created an agent that could autonomously determine whether a returned car needed a cleaning or not.
-In the end, implementing this agent was not much different from creating a single AI service like we did in the [previous section](../section-1/step-01.md){target="_blank"}.
-It did, however, set us up for building a more advanced agentic system, which is what we're going to start building now.
+While that agent was useful on its own, the real power of agentic systems comes from orchestrating multiple agents together.
 In this step, we're going to take a look at how we can orchestrate multiple agents using an **Agentic Workflow**.
 
 ## New Requirement: Track Car Conditions
@@ -187,7 +186,7 @@ sequenceDiagram
 
 Before starting:
 
-- Completed [Step 01](step-01.md){target="_blank"} (or have the `section-2/step-01` code available)
+- Completed [Step 01](step-01.md){target="_blank"} (or have the `step-01` code available)
 - Application from Step 01 is stopped (Ctrl+C)
 
 === "Option 1: Continue from Step 01"
@@ -196,7 +195,7 @@ Before starting:
 
     === "Linux / macOS"
         ```bash
-        cd section-2/step-01
+        cd step-01
         cp ../step-02/src/main/resources/META-INF/resources/css/styles.css ./src/main/resources/META-INF/resources/css/styles.css
         cp ../step-02/src/main/resources/META-INF/resources/js/app.js ./src/main/resources/META-INF/resources/js/app.js
         cp ../step-02/src/main/resources/META-INF/resources/index.html ./src/main/resources/META-INF/resources/index.html
@@ -206,7 +205,7 @@ Before starting:
 
     === "Windows"
         ```cmd
-        cd section-2\step-01
+        cd \step-01
         copy ..\step-02\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
         copy ..\step-02\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
         copy ..\step-02\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
@@ -218,10 +217,10 @@ Before starting:
 
 === "Option 2: Start Fresh from Step 02"
 
-    Alternatively, navigate to the complete `section-2/step-02` directory:
+    Alternatively, navigate to the complete `step-02` directory:
 
     ```bash
-    cd section-2/step-02
+    cd step-02
     ```
 
 ---
@@ -233,7 +232,7 @@ Create a new agent that analyzes feedback to determine a car's current condition
 In `src/main/java/com/carmanagement/agentic/agents`, create `CarConditionFeedbackAgent.java`:
 
 ```java title="CarConditionFeedbackAgent.java"
---8<-- "../../section-2/step-02/src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent.java"
+--8<-- "../../step-02/src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent.java"
 ```
 
 **Let's break it down:**
@@ -301,7 +300,7 @@ Before creating the workflow, we need a data model to return both the car condit
 In `src/main/java/com/carmanagement/model`, create `CarConditions.java`:
 
 ```java title="CarConditions.java"
---8<-- "../../section-2/step-02/src/main/java/com/carmanagement/model/CarConditions.java"
+--8<-- "../../step-02/src/main/java/com/carmanagement/model/CarConditions.java"
 ```
 
 This simple record combines the results from both agents in our workflow.
@@ -315,7 +314,7 @@ The `CleaningAgent` needs to specify an `outputKey` so its result can be accesse
 Update `src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java`:
 
 ```java hl_lines="35" title="CleaningAgent.java"
---8<-- "../../section-2/step-02/src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java"
+--8<-- "../../step-02/src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java"
 ```
 
 **Key change:**
@@ -347,7 +346,7 @@ Now, create the workflow that orchestrates both agents.
 In `src/main/java/com/carmanagement/agentic/workflow`, create `CarProcessingWorkflow.java`:
 
 ```java hl_lines="17-19" title="CarProcessingWorkflow.java"
---8<-- "../../section-2/step-02/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java"
+--8<-- "../../step-02/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java"
 ```
 
 **Let's break it down:**
@@ -417,7 +416,7 @@ Now update the service to use the workflow instead of calling agents directly.
 Update `src/main/java/com/carmanagement/service/CarManagementService.java`:
 
 ```java hl_lines="17-18 34-42 44-50" title="CarManagementService.java"
---8<-- "../../section-2/step-02/src/main/java/com/carmanagement/service/CarManagementService.java"
+--8<-- "../../step-02/src/main/java/com/carmanagement/service/CarManagementService.java"
 ```
 
 **What changed?**

@@ -62,7 +62,7 @@ Your app will be available at http://localhost:8080/.
 
 ### Dev UI
 
-Quarkus ships with a [Dev UI](https://quarkus.io/guides/dev-ui){target="\_blank"}, available only in dev mode at [http://localhost:8080/q/dev/](http://localhost:8080/q/dev/).
+Quarkus ships with a [Dev UI](https://mbroz2.github.io/guides/dev-ui){target="\_blank"}, available only in dev mode at [http://localhost:8080/q/dev/](http://localhost:8080/q/dev/).
 Think of it as your **toolbox** when building Quarkus applications.
 
 ### Debugging
@@ -80,16 +80,16 @@ Either clone the repository with Git or download a ZIP archive.
 ### With Git
 
 ```shell
-git clone https://github.com/quarkusio/quarkus-workshop-langchain4j.git
-cd quarkus-workshop-langchain4j
+git clone https://github.com/quarkusio/langchain4j-agentic-ai.git
+cd langchain4j-agentic-ai
 ```
 
 ### Direct Download
 
 ```shell
-curl -L -o workshop.zip https://github.com/quarkusio/quarkus-workshop-langchain4j/archive/refs/heads/main.zip
+curl -L -o workshop.zip https://github.com/quarkusio/langchain4j-agentic-ai/archive/refs/heads/main.zip
 unzip workshop.zip
-cd quarkus-workshop-langchain4j-main
+cd langchain4j-agentic-ai-main
 ```
 
 ---
@@ -117,8 +117,8 @@ To avoid bandwidth issues during the session, we recommend pre-downloading them.
 
 ## Importing the Project in Your IDE
 
-!!! tip 
-    Open the project from `section-1/step-01` in your IDE and use that directory throughout the workshop.
+!!! tip
+    Open the project from `step-01` in your IDE and use that directory throughout the workshop.
 
 If you get stuck, simply switch to the `step-xx` directory of the last completed step.
 
@@ -126,9 +126,5 @@ If you get stuck, simply switch to the `step-xx` directory of the last completed
 
 ## Next Step
 
-Once ready, you can pick one of these entries points to start the workshop:
-
-- If you discover Quarkus and Quarkus LangChain4j, start with [Section 1 - AI Apps](./section-1/step-01.md).
-- If you want to learn more advanced AI-Infused features, such as MCP, Guardrails, Observability, and Fault Tolerance, start with [Section 1 - Step 08](./section-1/step-08.md).
-- If you want to jump directly into agentic systems, start with [Section 2 - Agentic Workflows](./section-2/step-01.md).
+Once ready, start with [Step 1 - Implementing AI Agents](./step-01.md).
 

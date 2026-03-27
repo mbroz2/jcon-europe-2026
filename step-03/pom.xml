@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.langchain4j</groupId>
-    <artifactId>quarkus-workshop-langchain4j-2-05-multi-agent-system</artifactId>
+    <artifactId>langchain4j-agentic-ai-03</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -44,10 +44,6 @@
             <artifactId>quarkus-rest-jackson</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-arc</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.quarkiverse.langchain4j</groupId>
             <artifactId>quarkus-langchain4j-agentic</artifactId>
         </dependency>
@@ -59,10 +55,6 @@
         <dependency>
             <groupId>io.quarkiverse.langchain4j</groupId>
             <artifactId>quarkus-langchain4j-openai</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-agentic-a2a</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>

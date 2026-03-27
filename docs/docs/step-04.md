@@ -138,7 +138,7 @@ Let's build the new autonomous dispositioning system step by step.
 
 Before starting:
 
-- Completed [Step 03](step-03.md){target="_blank"} (or have the `section-2/step-03` code available)
+- Completed [Step 03](step-03.md){target="_blank"} (or have the `step-03` code available)
 - Application from Step 03 is stopped (Ctrl+C)
 
 === "Option 1: Continue from Step 03"
@@ -147,7 +147,7 @@ Before starting:
 
     === "Linux / macOS"
         ```bash
-        cd section-2/step-03
+        cd step-03
         cp ../step-04/src/main/resources/META-INF/resources/css/styles.css ./src/main/resources/META-INF/resources/css/styles.css
         cp ../step-04/src/main/resources/META-INF/resources/js/app.js ./src/main/resources/META-INF/resources/js/app.js
         cp ../step-04/src/main/resources/META-INF/resources/index.html ./src/main/resources/META-INF/resources/index.html
@@ -155,7 +155,7 @@ Before starting:
 
     === "Windows"
         ```cmd
-        cd section-2\step-03
+        cd \step-03
         copy ..\step-04\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
         copy ..\step-04\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
         copy ..\step-04\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
@@ -163,10 +163,10 @@ Before starting:
 
 === "Option 2: Start Fresh from Step 04"
 
-    Navigate to the complete `section-2/step-04` directory:
+    Navigate to the complete `step-04` directory:
 
     ```bash
-    cd section-2/step-04
+    cd step-04
     ```
 
 ---
@@ -178,7 +178,7 @@ Create an agent that detects severe damage requiring disposition evaluation.
 In `src/main/java/com/carmanagement/agentic/agents`, create `DispositionFeedbackAgent.java`:
 
 ```java title="DispositionFeedbackAgent.java" hl_lines="15-19 22 25 42"
---8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/DispositionFeedbackAgent.java"
+--8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/DispositionFeedbackAgent.java"
 ```
 
 This agent runs in **parallel** with the other feedback agents,
@@ -196,7 +196,7 @@ As a reminder, the agent will be invoked by the supervisor when pricing is neede
 In `src/main/java/com/carmanagement/agentic/agents`, create `PricingAgent.java`:
 
 ```java title="PricingAgent.java" hl_lines="16 35-37 39-41 50-53"
---8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/PricingAgent.java"
+--8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/PricingAgent.java"
 ```
 
 ### Create the DispositionAgent
@@ -209,7 +209,7 @@ PricingAgent's value estimate as well as the car's age and condition.
 In `src/main/java/com/carmanagement/agentic/agents`, create `DispositionAgent.java`:
 
 ```java title="DispositionAgent.java" hl_lines="16 22 29 41 43"
---8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java"
+--8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java"
 ```
 
 ### Create the FleetSupervisorAgent
@@ -222,7 +222,7 @@ the better the supervisor will be at deciding which agents to invoke.
 In `src/main/java/com/carmanagement/agentic/agents`, create `FleetSupervisorAgent.java`:
 
 ```java title="FleetSupervisorAgent.java" hl_lines="13 15 20 22"
---8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java"
+--8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java"
 ```
 
 **Key Points:**
@@ -302,7 +302,7 @@ We need to update the `FeedbackWorkflow` and add the `DispositionFeedbackAgent` 
 Update `src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java`:
 
 ```java title="FeedbackWorkflow.java" hl_lines="5 19"
---8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java"
+--8<-- "../../step-04/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java"
 ```
 
 ### Update the CarProcessingWorkflow
@@ -314,7 +314,7 @@ and add the additional car assignment logic based on the output of the superviso
 Update `src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java`:
 
 ```java title="CarProcessingWorkflow.java" hl_lines="4 22 39-49"
---8<-- "../../section-2/step-04/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java"
+--8<-- "../../step-04/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java"
 ```
 
 !!!question "Why both check dispositionRequest and supervisorDecision?"

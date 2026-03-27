@@ -169,7 +169,7 @@ graph TB
 The `CarProcessingWorkflow` orchestrates the entire process sequentially:
 
 ```java title="CarProcessingWorkflow.java" hl_lines="1-3"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java:sequence-agent"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java:sequence-agent"
 ```
 
 Notice that `subAgents` contains **two workflows** and one agent. Workflows are first-class citizens that can be nested just like agents.
@@ -179,7 +179,7 @@ Notice that `subAgents` contains **two workflows** and one agent. Workflows are 
 The `FeedbackWorkflow` runs multiple agents **simultaneously**:
 
 ```java title="FeedbackWorkflow.java" hl_lines="1-2"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java:parallel-agent"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java:parallel-agent"
 ```
 
 The agents analyze different aspects (cleaning vs. maintenance) and don't depend on each other, so running them concurrently improves performance.
@@ -189,7 +189,7 @@ The agents analyze different aspects (cleaning vs. maintenance) and don't depend
 The `CarAssignmentWorkflow` uses **activation conditions** to intelligently route cars to the appropriate team based on the analysis it has done:
 
 ```java title="CarAssignmentWorkflow.java" hl_lines="1 12 17 22"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java:conditional-agent"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java:conditional-agent"
 ```
 
 - If `assignToMaintenance()` returns `true` → MaintenanceAgent runs, CleaningAgent skipped
@@ -209,7 +209,7 @@ Now that you understand the architecture, let's see it in action!
 1. Navigate to the complete solution directory:
 
 ```bash
-cd section-2/step-03
+cd step-03
 ./mvnw quarkus:dev
 ```
 
@@ -393,11 +393,11 @@ If you want hands-on practice implementing these patterns, you can build the sol
     so if you're short on time and would like to learn about the next concepts,
     feel free to skip to the next step.
     As a middle-of-the-road solution, you can also read on and walk through the implementation
-    steps in the source code of section-2/step-03 without making all the code changes yourself.
+    steps in the source code of step-03 without making all the code changes yourself.
 
 ### What You'll Build
 
-Starting from your current code in `section-2/step-02`, you'll add:
+Starting from your current code in `step-02`, you'll add:
 
 1. **Feedback Analysis Agents** (MaintenanceFeedbackAgent, CleaningFeedbackAgent)
 2. **Parallel Feedback Workflow** to run them concurrently
@@ -412,7 +412,7 @@ Starting from your current code in `section-2/step-02`, you'll add:
 
 Before starting:
 
-- Completed [Step 02](step-02.md){target="_blank"} (or have the `section-2/step-02` code available)
+- Completed [Step 02](step-02.md){target="_blank"} (or have the `step-02` code available)
 - Application from Step 02 is stopped (Ctrl+C)
 
 === "Option 1: Continue from Step 02"
@@ -443,7 +443,7 @@ Before starting:
     If you prefer to start with the complete Step 03 code, and walk through the code instead of implementing everything yourself:
 
     ```bash
-    cd section-2/step-03
+    cd step-03
     ```
 
 ### Create Feedback Analysis Agents
@@ -453,7 +453,7 @@ Before starting:
 Create `src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.java`:
 
 ```java title="MaintenanceFeedbackAgent.java" hl_lines="10 17-18 29-31 34"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.java"
 ```
 
 **Key Points:**
@@ -467,7 +467,7 @@ Create `src/main/java/com/carmanagement/agentic/agents/MaintenanceFeedbackAgent.
 Create `src/main/java/com/carmanagement/agentic/agents/CleaningFeedbackAgent.java`:
 
 ```java title="CleaningFeedbackAgent.java" hl_lines="16-17 28-30 33"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/CleaningFeedbackAgent.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/agents/CleaningFeedbackAgent.java"
 ```
 
 **Key Points:**
@@ -484,7 +484,7 @@ This is where the `@ParallelAgent` annotation comes into play.
 Create `src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java`:
 
 ```java title="FeedbackWorkflow.java" hl_lines="15-16"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java"
 ```
 
 **Key Points:**
@@ -502,7 +502,7 @@ These agents will examine the analysis results and determine what should happen 
 Create `src/main/java/com/carmanagement/agentic/agents/MaintenanceAgent.java`:
 
 ```java title="MaintenanceAgent.java" hl_lines="30"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/MaintenanceAgent.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/agents/MaintenanceAgent.java"
 ```
 
 #### Update CleaningAgent
@@ -512,7 +512,7 @@ The CleaningAgent we created previously should now return analysisResult as well
 Update `src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java`:
 
 ```java title="CleaningAgent.java" hl_lines="35"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java"
 ```
 
 ### Create the Conditional Car Assignment Workflow
@@ -523,7 +523,7 @@ service agent path based on the analysis results. Notice the same analysisResult
 Create `src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java`:
 
 ```java title="CarAssignmentWorkflow.java" hl_lines="16-17 27 32"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java"
 ```
 
 **Key Points:**
@@ -538,7 +538,7 @@ Create `src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.j
 Update `src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent.java` to add the new maintenance recommendations:
 
 ```java title="CarConditionFeedbackAgent.java" hl_lines="27 38"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent.java"
 ```
 
 ### Create Supporting Infrastructure
@@ -548,7 +548,7 @@ Update `src/main/java/com/carmanagement/agentic/agents/CarConditionFeedbackAgent
 Create `src/main/java/com/carmanagement/agentic/tools/MaintenanceTool.java` to add a function for creating a request to the maintenance team:
 
 ```java title="MaintenanceTool.java"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/tools/MaintenanceTool.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/tools/MaintenanceTool.java"
 ```
 
 #### Create CarAssignment Model
@@ -556,7 +556,7 @@ Create `src/main/java/com/carmanagement/agentic/tools/MaintenanceTool.java` to a
 Create `src/main/java/com/carmanagement/model/CarAssignment.java`:
 
 ```java title="CarAssignment.java"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/model/CarAssignment.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/model/CarAssignment.java"
 ```
 
 #### Update CarConditions Model
@@ -564,7 +564,7 @@ Create `src/main/java/com/carmanagement/model/CarAssignment.java`:
 Update `src/main/java/com/carmanagement/model/CarConditions.java`:
 
 ```java title="CarConditions.java"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/model/CarConditions.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/model/CarConditions.java"
 ```
 
 #### Update the main Car Processing Workflow
@@ -578,7 +578,7 @@ We'll also update the outputKey and the output method to make sure the assignmen
 Update `src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java`:
 
 ```java title="CarProcessingWorkflow.java" hl_lines="17-18 27 30-41 43-45"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/CarProcessingWorkflow.java"
 ```
 
 **Key Points:**
@@ -595,7 +595,7 @@ And finally, we'll update the Car Management service to handle the result from t
 Update `src/main/java/com/carmanagement/service/CarManagementService.java`:
 
 ```java title="CarManagementService.java"
---8<-- "../../section-2/step-03/src/main/java/com/carmanagement/service/CarManagementService.java"
+--8<-- "../../step-03/src/main/java/com/carmanagement/service/CarManagementService.java"
 ```
 
 ### Test Your Implementation
@@ -611,7 +611,7 @@ Once you've implemented all the parts:
 
 3. Test with the scenarios described earlier
 
-4. Compare your implementation with the complete solution in `section-2/step-03`
+4. Compare your implementation with the complete solution in `step-03`
 
 ---
 
