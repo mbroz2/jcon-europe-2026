@@ -26,23 +26,13 @@ jobs:
       fail-fast: false
       matrix:
         app:
-          - section-1/step-01
-          - section-1/step-02
-          - section-1/step-03
-          - section-1/step-04
-          - section-1/step-05
-          - section-1/step-06
-          - section-1/step-07
-          - section-1/step-08
-          - section-1/step-09
-          - section-1/step-10
-          - section-1/step-11
-          - section-2/step-01
-          - section-2/step-02
-          - section-2/step-03
-          - section-2/step-04
-          - section-2/step-05/multi-agent-system
-          - section-2/step-05/remote-a2a-agent
+          - step-01
+          - step-02
+          - step-03
+          - step-04
+          - step-05/multi-agent-system
+          - step-05/remote-a2a-agent
+          - step-06
 
     name: "Build ${{ matrix.app }}"
     steps:
