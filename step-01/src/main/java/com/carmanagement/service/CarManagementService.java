@@ -2,11 +2,11 @@ package com.carmanagement.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 
 import com.carmanagement.agentic.agents.CleaningAgent;
 import com.carmanagement.model.CarInfo;
 import com.carmanagement.model.CarStatus;
+import com.carmanagement.repository.CarInfoRepository;
 
 /**
  * Service for managing car returns from various operations.
@@ -16,6 +16,9 @@ public class CarManagementService {
 
     @Inject
     CleaningAgent cleaningAgent;
+    
+    @Inject
+    CarInfoRepository repository;
 
     // --8<-- [start:processCarReturn]
     /**
@@ -26,9 +29,8 @@ public class CarManagementService {
      * @param cleaningFeedback Optional cleaning feedback
      * @return Result of the processing
      */
-    @Transactional
     public String processCarReturn(Integer carNumber, String rentalFeedback, String cleaningFeedback) {
-        CarInfo carInfo = CarInfo.findById(carNumber);
+        CarInfo carInfo = repository.findById(carNumber.longValue());
         if (carInfo == null) {
             return "Car not found with number: " + carNumber;
         }
@@ -44,7 +46,7 @@ public class CarManagementService {
 
         if (result.toUpperCase().contains("CLEANING_NOT_REQUIRED")) {
             carInfo.status = CarStatus.AVAILABLE;
-            carInfo.persist();
+            repository.persist(carInfo);
         }
 
         return result;
@@ -52,3 +54,4 @@ public class CarManagementService {
     // --8<-- [end:processCarReturn]
 }
 
+// Made with Bob

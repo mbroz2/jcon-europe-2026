@@ -1,10 +1,11 @@
 package com.carmanagement.agentic.tools;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.transaction.Transactional;
+import jakarta.inject.Inject;
 
 import com.carmanagement.model.CarInfo;
 import com.carmanagement.model.CarStatus;
+import com.carmanagement.repository.CarInfoRepository;
 import dev.langchain4j.agent.tool.Tool;
 
 // --8<-- [start:CleaningTool]
@@ -13,6 +14,9 @@ import dev.langchain4j.agent.tool.Tool;
  */
 @ApplicationScoped
 public class CleaningTool {
+
+    @Inject
+    CarInfoRepository repository;
 
     /**
      * Requests a cleaning based on the provided parameters.
@@ -29,7 +33,6 @@ public class CleaningTool {
      * @return A summary of the cleaning request
      */
     @Tool("Requests a cleaning with the specified options")
-    @Transactional
     public String requestCleaning(
             Integer carNumber,
             String carMake,
@@ -45,10 +48,10 @@ public class CleaningTool {
         // or update a database with the cleaning request
         
         // Update car status to AT_CLEANING
-        CarInfo carInfo = CarInfo.findById(carNumber);
+        CarInfo carInfo = repository.findById(carNumber.longValue());
         if (carInfo != null) {
             carInfo.status = CarStatus.AT_CLEANING;
-            carInfo.persist();
+            repository.persist(carInfo);
         }
         
         var result = generateCleaningSummary(carNumber, carMake, carModel, carYear,
@@ -99,4 +102,4 @@ public class CleaningTool {
     }
 }
 
-
+// Made with Bob

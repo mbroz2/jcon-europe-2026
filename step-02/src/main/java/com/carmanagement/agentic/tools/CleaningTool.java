@@ -1,10 +1,11 @@
 package com.carmanagement.agentic.tools;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.transaction.Transactional;
 
 import com.carmanagement.model.CarInfo;
+import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarStatus;
+import com.carmanagement.repository.CarInfoRepository;
 import dev.langchain4j.agent.tool.Tool;
 
 /**
@@ -28,7 +29,6 @@ public class CleaningTool {
      * @return A summary of the cleaning request
      */
     @Tool("Requests a cleaning with the specified options")
-    @Transactional    
     public String requestCleaning(
             Integer carNumber,
             String carMake,
@@ -44,10 +44,10 @@ public class CleaningTool {
         // or update a database with the cleaning request
         
         // Update car status to AT_CLEANING
-        CarInfo carInfo = CarInfo.findById(carNumber);
+        CarInfo carInfo = repository.findById(carNumber.longValue());
         if (carInfo != null) {
             carInfo.status = CarStatus.AT_CLEANING;
-            carInfo.persist();
+            repository.persist(carInfo);
         }
         
         String result = generateCleaningSummary(carNumber, carMake, carModel, carYear,

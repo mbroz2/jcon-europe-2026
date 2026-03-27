@@ -106,7 +106,7 @@ We're going to implement:
 - **3 feedback sources**: collect *human* feedback not only from the car rental returns team, but also from the cleaning team, and from the maintenance team
 - **Parallel analysis**: do concurrent evaluation for both cleaning and maintenance needs
 - **Conditional routing**: implement intelligent decision-making about where to send each car
-- **Update the system**: add additional Tools the agents can call to update the car conditions in the database based on all feedback
+- **Update the system**: add additional Tools the agents can call to update the car conditions in the in-memory store based on all feedback
 
 ### The Complete Solution Architecture
 

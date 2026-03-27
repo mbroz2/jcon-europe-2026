@@ -2,12 +2,14 @@ package com.carmanagement.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 
 import com.carmanagement.agentic.workflow.CarProcessingWorkflow;
 import com.carmanagement.model.CarConditions;
+import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarInfo;
+import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarStatus;
+import com.carmanagement.repository.CarInfoRepository;
 import io.quarkus.logging.Log;
 import io.smallrye.mutiny.Uni;
 
@@ -19,6 +21,9 @@ import static dev.langchain4j.agentic.observability.HtmlReportGenerator.generate
  */
 @ApplicationScoped
 public class CarManagementService {
+
+    @Inject
+    CarInfoRepository repository;
 
     @Inject
     CarProcessingWorkflow carProcessingWorkflow;
@@ -86,16 +91,14 @@ public class CarManagementService {
     /**
      * Find car info in a read-only transaction
      */
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
     CarInfo findCarInfo(Integer carNumber) {
-        return CarInfo.findById(carNumber);
+        return repository.findById(carNumber.longValue());
     }
     
     /**
      * Update car info in a separate transaction after workflow completes.
      * Uses merge to handle detached entity from the workflow.
      */
-    @Transactional(Transactional.TxType.REQUIRES_NEW)
     void updateCarInfo(CarInfo carInfo) {
         // Merge the detached entity back into the persistence context
         CarInfo.getEntityManager().merge(carInfo);

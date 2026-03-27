@@ -59,7 +59,6 @@ The application runs on [http://localhost:8080](http://localhost:8080).
 
 - JDK 21+
 - Maven
-- Docker or Podman
 - OpenAI API key
 
 For detailed requirements, see the [workshop website](https://mbroz2.github.io/langchain4j-agentic-ai/).

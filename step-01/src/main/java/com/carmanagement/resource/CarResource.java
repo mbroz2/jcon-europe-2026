@@ -1,6 +1,8 @@
 package com.carmanagement.resource;
 
 import com.carmanagement.model.CarInfo;
+import com.carmanagement.repository.CarInfoRepository;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
@@ -11,6 +13,9 @@ import java.util.List;
  */
 @Path("/cars")
 public class CarResource {
+    
+    @Inject
+    CarInfoRepository repository;
         
     /**
      * Get all cars in the system.
@@ -19,7 +24,7 @@ public class CarResource {
      */
     @GET
     public List<CarInfo> getAllCars() {
-        return CarInfo.listAll();
+        return repository.listAll();
     }
     
     /**
@@ -30,8 +35,8 @@ public class CarResource {
      */
     @GET
     @Path("/{id}")
-    public Response getCarById(Integer id) {
-        CarInfo car = CarInfo.findById(id);
+    public Response getCarById(Long id) {
+        CarInfo car = repository.findById(id);
         if (car == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("Car with ID " + id + " not found")
@@ -41,4 +46,4 @@ public class CarResource {
     }
 }
 
-
+// Made with Bob

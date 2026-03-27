@@ -1,14 +1,15 @@
 package com.carmanagement.service;
 
 import com.carmanagement.model.ApprovalProposal;
+import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.ApprovalProposal.ApprovalStatus;
+import com.carmanagement.repository.CarInfoRepository;
 import io.quarkus.logging.Log;
 import io.quarkus.vertx.ConsumeEvent;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
 import static jakarta.transaction.Transactional.TxType;
 
 import java.time.LocalDateTime;
@@ -26,6 +27,9 @@ import java.util.concurrent.Executors;
  */
 @ApplicationScoped
 public class ApprovalService {
+
+    @Inject
+    CarInfoRepository repository;
 
     @Inject
     EntityManager entityManager;
@@ -95,7 +99,6 @@ public class ApprovalService {
         return future;
     }
 
-    @Transactional(TxType.REQUIRES_NEW)
     void createProposalInNewTransaction(
             Integer carNumber,
             String carMake,
@@ -121,7 +124,7 @@ public class ApprovalService {
         proposal.status = ApprovalStatus.PENDING;
         proposal.createdAt = LocalDateTime.now();
 
-        proposal.persist();
+        repository.persist(proposal);
         entityManager.flush();
 
         Log.infof("Created approval proposal ID=%d for car %d - %s %s %s (Value: %s, Proposed: %s)",
@@ -140,7 +143,6 @@ public class ApprovalService {
      * @param approvedBy Who made the decision
      * @return The updated proposal
      */
-    @Transactional(TxType.REQUIRES_NEW)
     public ApprovalProposal processDecision(Integer proposalId, boolean approved, String reason, String approvedBy) {
         ApprovalProposal proposal = ApprovalProposal.findById(proposalId);
         if (proposal == null) {
@@ -158,7 +160,7 @@ public class ApprovalService {
         proposal.approvedBy = approvedBy;
         proposal.decidedAt = LocalDateTime.now();
 
-        proposal.persist();
+        repository.persist(proposal);
 
         Log.infof("Human decision received for car %d: %s - %s",
                 proposal.carNumber, proposal.decision, reason);

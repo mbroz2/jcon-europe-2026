@@ -1,23 +1,30 @@
 package com.carmanagement.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Model class representing a car in the rental fleet.
  */
-@Entity()
-@Table(name="car_info")
-public class CarInfo extends PanacheEntity {
+public class CarInfo {
+    private static final AtomicLong ID_GENERATOR = new AtomicLong(1);
+    
+    public Long id;
     public String make;
     public String model;
     public Integer year;
-    
-    @Enumerated(EnumType.STRING)
     public CarStatus status;
+    
+    public CarInfo() {
+        this.id = ID_GENERATOR.getAndIncrement();
+    }
+    
+    public CarInfo(String make, String model, Integer year, CarStatus status) {
+        this();
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.status = status;
+    }
 }
 
-
+// Made with Bob

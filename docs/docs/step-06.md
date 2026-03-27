@@ -228,7 +228,7 @@ Create `src/main/java/com/carmanagement/service/ApprovalService.java`:
 
 ### Create the ApprovalProposal Entity
 
-This entity stores proposals in the database so the UI can display them.
+This entity stores proposals in the in-memory store so the UI can display them.
 
 Create `src/main/java/com/carmanagement/model/ApprovalProposal.java`:
 

@@ -4,8 +4,6 @@
 
 - **JDK 21.0 or later** – [Download from Adoptium](https://adoptium.net/){target="_blank"}
 - **OpenAI API key** – provided by the workshop organizer
-- **Podman or Docker** – see [Podman installation](https://podman.io/getting-started/installation){target="_blank"} or [Docker installation](https://docs.docker.com/get-docker/){target="_blank"}
-    - If you use Podman, we recommend [Podman Desktop](https://podman-desktop.io/docs/installation){target="_blank"} for easier container management.
 - **IDE with Java support** – IntelliJ, Eclipse, VSCode (with Java extension), etc.
 - **Terminal** – to run commands
 - _(Optional)_ **Git** – [Installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git){target="_blank"}
@@ -57,6 +55,8 @@ Run your Quarkus app in **dev mode** from the project directory:
 Dev mode automatically recompiles your code on every change.
 Your app will be available at http://localhost:8080/.
 
+All data is stored in-memory, so restarting the application will reset the data to its initial state.
+
 !!! warning "Switching steps"
     Stop the running application (Ctrl+C) before starting the next step.
 
@@ -96,7 +96,7 @@ cd langchain4j-agentic-ai-main
 
 ## Pre-Warming Caches
 
-This workshop requires downloading Maven dependencies and Docker images.
+This workshop requires downloading Maven dependencies.
 To avoid bandwidth issues during the session, we recommend pre-downloading them.
 
 ### Warm up Maven
@@ -105,13 +105,8 @@ To avoid bandwidth issues during the session, we recommend pre-downloading them.
 ./mvnw verify
 ```
 
-!!! tip 
+!!! tip
     This command not only downloads dependencies but also verifies your setup before the workshop.
-
-### Warm up Docker Images
-
-* Podman: `podman pull pgvector/pgvector:pg17`
-* Docker: `docker pull pgvector/pgvector:pg17`
 
 ---
 

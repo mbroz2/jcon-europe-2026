@@ -52,7 +52,6 @@ Before starting, ensure you have:
 
 - JDK 21+ installed
 - OpenAI API key set as `OPENAI_API_KEY` environment variable
-- A container runtime (Docker/Podman) for running a PostgreSQL [Dev Service](https://mbroz2.github.io/guides/databases-dev-services)
 - Basic familiarity with Java and REST APIs
 
 ---
