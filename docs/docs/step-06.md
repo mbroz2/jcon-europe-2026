@@ -760,7 +760,7 @@ This is invaluable for debugging agent behavior, understanding why the superviso
 
 ## What's Next?
 
-Congratulations! You've completed the final step of Section 2 and implemented the **Human-in-the-Loop pattern** for safe, controlled autonomous decision-making!
+Congratulations! You've completed the final step of the Langchain4j Agentic AI Workshop and implemented the **Human-in-the-Loop pattern** for safe, controlled autonomous decision-making!
 
 The system now:
 

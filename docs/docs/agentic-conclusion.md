@@ -1,6 +1,6 @@
 # Conclusion: Mastering Agentic Systems
 
-Congratulations! You've completed **Section 2: Agentic Systems** of the Quarkus LangChain4j workshop.
+Congratulations! You've completed the **LangChain4j Agentic AI Workshop**.
 
 Over the past six steps, you've journeyed from simple AI agents to sophisticated distributed multi-agent systems with human oversight.
 Let's reflect on what you've built and why these patterns matter.
