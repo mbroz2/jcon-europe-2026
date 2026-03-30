@@ -1,16 +1,12 @@
 package com.carmanagement.service;
 
 import com.carmanagement.model.ApprovalProposal;
+import com.carmanagement.repository.ApprovalProposalRepository;
 import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.ApprovalProposal.ApprovalStatus;
-import com.carmanagement.repository.CarInfoRepository;
 import io.quarkus.logging.Log;
-import io.quarkus.vertx.ConsumeEvent;
-import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
-import static jakarta.transaction.Transactional.TxType;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,10 +25,10 @@ import java.util.concurrent.Executors;
 public class ApprovalService {
 
     @Inject
-    CarInfoRepository repository;
+    CarInfoRepository carInfoRepository;
 
     @Inject
-    EntityManager entityManager;
+    ApprovalProposalRepository approvalProposalRepository;
 
     /**
      * Map to store CompletableFutures waiting for approval decisions.
@@ -72,7 +68,7 @@ public class ApprovalService {
             String rentalFeedback) {
 
         // Check if there's already a pending proposal for this car
-        ApprovalProposal existing = ApprovalProposal.findPendingByCarNumber(carNumber);
+        ApprovalProposal existing = approvalProposalRepository.findPendingByCarNumber(carNumber);
         if (existing != null) {
             Log.warnf("Proposal already exists for car %d, returning existing future", carNumber);
             return pendingApprovals.computeIfAbsent(carNumber, k -> new CompletableFuture<>());
@@ -124,8 +120,7 @@ public class ApprovalService {
         proposal.status = ApprovalStatus.PENDING;
         proposal.createdAt = LocalDateTime.now();
 
-        repository.persist(proposal);
-        entityManager.flush();
+        approvalProposalRepository.persist(proposal);
 
         Log.infof("Created approval proposal ID=%d for car %d - %s %s %s (Value: %s, Proposed: %s)",
                 proposal.id, carNumber, carYear, carMake, carModel, carValue, proposedDisposition);
@@ -144,7 +139,7 @@ public class ApprovalService {
      * @return The updated proposal
      */
     public ApprovalProposal processDecision(Integer proposalId, boolean approved, String reason, String approvedBy) {
-        ApprovalProposal proposal = ApprovalProposal.findById(proposalId);
+        ApprovalProposal proposal = approvalProposalRepository.findById(proposalId.longValue());
         if (proposal == null) {
             throw new IllegalArgumentException("Proposal not found: " + proposalId);
         }
@@ -160,7 +155,7 @@ public class ApprovalService {
         proposal.approvedBy = approvedBy;
         proposal.decidedAt = LocalDateTime.now();
 
-        repository.persist(proposal);
+        approvalProposalRepository.persist(proposal);
 
         Log.infof("Human decision received for car %d: %s - %s",
                 proposal.carNumber, proposal.decision, reason);
@@ -179,22 +174,22 @@ public class ApprovalService {
      * Get all pending approval proposals.
      */
     public List<ApprovalProposal> getPendingProposals() {
-        return ApprovalProposal.findAllPending();
+        return approvalProposalRepository.findAllPending();
     }
 
     /**
      * Get a specific proposal by ID.
      */
     public ApprovalProposal getProposal(Integer proposalId) {
-        return ApprovalProposal.findById(proposalId);
+        return approvalProposalRepository.findById(proposalId.longValue());
     }
 
     /**
      * Check if there's a pending approval for a car.
      */
     public ApprovalProposal getPendingProposalForCar(Integer carNumber) {
-        return ApprovalProposal.findPendingByCarNumber(carNumber);
+        return approvalProposalRepository.findPendingByCarNumber(carNumber);
     }
 }
 
-
+// Made with Bob

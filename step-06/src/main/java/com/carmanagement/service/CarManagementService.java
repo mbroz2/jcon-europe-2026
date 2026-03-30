@@ -97,11 +97,10 @@ public class CarManagementService {
     
     /**
      * Update car info in a separate transaction after workflow completes.
-     * Uses merge to handle detached entity from the workflow.
      */
     void updateCarInfo(CarInfo carInfo) {
-        // Merge the detached entity back into the persistence context
-        CarInfo.getEntityManager().merge(carInfo);
+        // Persist the updated car info to the repository
+        repository.persist(carInfo);
     }
 
     public String report() {

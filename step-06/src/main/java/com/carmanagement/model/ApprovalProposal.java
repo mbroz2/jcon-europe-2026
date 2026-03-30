@@ -1,24 +1,21 @@
 package com.carmanagement.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Column;
 import java.time.LocalDateTime;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Entity representing a disposition proposal awaiting human approval.
+ * Model representing a disposition proposal awaiting human approval.
  * This is the core of the Human-in-the-Loop pattern - proposals are stored
  * and the workflow pauses until a human makes an approval decision.
  */
-@Entity
-public class ApprovalProposal extends PanacheEntity {
+public class ApprovalProposal {
+    private static final AtomicLong ID_GENERATOR = new AtomicLong(1);
+    
+    public Long id;
 
     /**
      * The car number this proposal is for
      */
-    @Column(nullable = false)
     public Integer carNumber;
 
     /**
@@ -44,32 +41,26 @@ public class ApprovalProposal extends PanacheEntity {
     /**
      * Proposed disposition action (SCRAP, SELL, DONATE, KEEP)
      */
-    @Column(nullable = false)
     public String proposedDisposition;
 
     /**
      * Reasoning for the proposed disposition
      */
-    @Column(length = 2000)
     public String dispositionReason;
 
     /**
      * Current car condition
      */
-    @Column(length = 1000)
     public String carCondition;
 
     /**
      * Rental feedback that triggered this proposal
      */
-    @Column(length = 2000)
     public String rentalFeedback;
 
     /**
      * Current status of the approval
      */
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     public ApprovalStatus status = ApprovalStatus.PENDING;
 
     /**
@@ -80,7 +71,6 @@ public class ApprovalProposal extends PanacheEntity {
     /**
      * Human's reasoning for their decision
      */
-    @Column(length = 1000)
     public String approvalReason;
 
     /**
@@ -91,7 +81,6 @@ public class ApprovalProposal extends PanacheEntity {
     /**
      * When the proposal was created
      */
-    @Column(nullable = false)
     public LocalDateTime createdAt = LocalDateTime.now();
 
     /**
@@ -99,18 +88,8 @@ public class ApprovalProposal extends PanacheEntity {
      */
     public LocalDateTime decidedAt;
 
-    /**
-     * Find pending proposal for a specific car
-     */
-    public static ApprovalProposal findPendingByCarNumber(Integer carNumber) {
-        return find("carNumber = ?1 and status = ?2", carNumber, ApprovalStatus.PENDING).firstResult();
-    }
-
-    /**
-     * Find all pending proposals
-     */
-    public static java.util.List<ApprovalProposal> findAllPending() {
-        return find("status", ApprovalStatus.PENDING).list();
+    public ApprovalProposal() {
+        this.id = ID_GENERATOR.getAndIncrement();
     }
 
     /**
@@ -123,4 +102,4 @@ public class ApprovalProposal extends PanacheEntity {
     }
 }
 
-
+// Made with Bob
