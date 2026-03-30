@@ -1,19 +1,17 @@
 package com.carmanagement.service;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
+import static dev.langchain4j.agentic.observability.HtmlReportGenerator.generateReport;
 
 import com.carmanagement.agentic.workflow.CarProcessingWorkflow;
 import com.carmanagement.model.CarConditions;
-import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarInfo;
-import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarStatus;
 import com.carmanagement.repository.CarInfoRepository;
+
 import io.quarkus.logging.Log;
 import io.smallrye.mutiny.Uni;
-
-import static dev.langchain4j.agentic.observability.HtmlReportGenerator.generateReport;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 /**
  * Service for managing car returns from various operations.

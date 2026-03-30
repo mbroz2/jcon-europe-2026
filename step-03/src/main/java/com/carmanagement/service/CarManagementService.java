@@ -1,16 +1,14 @@
 package com.carmanagement.service;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
-
 import com.carmanagement.agentic.workflow.CarProcessingWorkflow;
 import com.carmanagement.model.CarConditions;
-import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarInfo;
-import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarStatus;
 import com.carmanagement.repository.CarInfoRepository;
+
 import io.quarkus.logging.Log;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 /**
  * Service for managing car returns from various operations.
