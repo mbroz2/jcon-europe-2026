@@ -13,6 +13,7 @@ public class CarInfo {
     public String model;
     public Integer year;
     public CarStatus status;
+    public String condition;
     
     public CarInfo() {
         this.id = ID_GENERATOR.getAndIncrement();
@@ -24,6 +25,7 @@ public class CarInfo {
         this.model = model;
         this.year = year;
         this.status = status;
+        this.condition = "Good";
     }
 }
 

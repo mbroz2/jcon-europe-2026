@@ -1,11 +1,11 @@
 package com.carmanagement.agentic.tools;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import com.carmanagement.model.CarInfo;
 import com.carmanagement.repository.CarInfoRepository;
 import com.carmanagement.model.CarStatus;
-import com.carmanagement.repository.CarInfoRepository;
 import dev.langchain4j.agent.tool.Tool;
 
 /**
@@ -13,6 +13,9 @@ import dev.langchain4j.agent.tool.Tool;
  */
 @ApplicationScoped
 public class CleaningTool {
+
+    @Inject
+    CarInfoRepository repository;
 
     /**
      * Requests a cleaning based on the provided parameters.
