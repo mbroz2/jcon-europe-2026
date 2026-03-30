@@ -60,11 +60,6 @@ All data is stored in-memory, so restarting the application will reset the data 
 !!! warning "Switching steps"
     Stop the running application (Ctrl+C) before starting the next step.
 
-### Dev UI
-
-Quarkus ships with a [Dev UI](https://mbroz2.github.io/guides/dev-ui){target="\_blank"}, available only in dev mode at [http://localhost:8080/q/dev/](http://localhost:8080/q/dev/).
-Think of it as your **toolbox** when building Quarkus applications.
-
 ### Debugging
 
 To debug an app in dev mode, put breakpoints in your code and attach your IDE debugger.
@@ -80,21 +75,21 @@ Either clone the repository with Git or download a ZIP archive.
 ### With Git
 
 ```shell
-git clone https://github.com/quarkusio/langchain4j-agentic-ai.git
-cd langchain4j-agentic-ai
+git clone https://github.com/mbroz2/jcon-europe-2026.git
+cd jcon-europe-2026
 ```
 
 ### Direct Download
 
 ```shell
-curl -L -o workshop.zip https://github.com/quarkusio/langchain4j-agentic-ai/archive/refs/heads/main.zip
+curl -L -o workshop.zip https://github.com/mbroz2/jcon-europe-2026/archive/refs/heads/main.zip
 unzip workshop.zip
-cd langchain4j-agentic-ai-main
+cd jcon-europe-2026-main
 ```
 
 ---
 
-## Pre-Warming Caches
+## Optional: Pre-Warming Caches
 
 This workshop requires downloading Maven dependencies.
 To avoid bandwidth issues during the session, we recommend pre-downloading them.
@@ -115,7 +110,7 @@ To avoid bandwidth issues during the session, we recommend pre-downloading them.
 !!! tip
     Open the project from `step-01` in your IDE and use that directory throughout the workshop.
 
-If you get stuck, simply switch to the `step-xx` directory of the last completed step.
+If you get stuck, simply switch to the `step-xx` directory that is after the the last step you completed.
 
 ---
 
