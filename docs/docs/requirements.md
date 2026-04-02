@@ -80,7 +80,7 @@ Either clone the repository with Git or download a ZIP archive.
 
 ### With Git
 
-```bash
+```shell
 git clone https://github.com/mbroz2/jcon-europe-2026.git
 cd jcon-europe-2026
 ```
