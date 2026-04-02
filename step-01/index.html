@@ -2459,14 +2459,13 @@ If you open the <code>pom.xml</code> file from the project, you will see this de
 <h4 id="4-mcp-server-configuration">4. MCP Server Configuration<a class="headerlink" href="#4-mcp-server-configuration" title="Permanent link"></a></h4>
 <p>The Quarkus application must be configured to connect to the MCP server:</p>
 <div class="highlight"><span class="filename">application.properties</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># MCP Server connection</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="hll"><span class="na">quarkus.langchain4j.mcp.weather.transport-type</span><span class="o">=</span><span class="s">streamable-http</span>
-</span><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="hll"><span class="na">quarkus.langchain4j.mcp.weather.url</span><span class="o">=</span><span class="s">http://localhost:9080/bonus-liberty-mcp/mcp</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="hll"><span class="na">quarkus.langchain4j.mcp.liberty.transport-type</span><span class="o">=</span><span class="s">streamable-http</span>
+</span><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="hll"><span class="na">quarkus.langchain4j.mcp.liberty.url</span><span class="o">=</span><span class="s">http://localhost:9080/bonus-liberty-mcp/mcp</span>
 </span></code></pre></div>
 <p><strong>Key Points:</strong></p>
 <ul>
-<li><code>quarkus.langchain4j.mcp.weather.transport-type</code>: Protocol type (streamable-http for Liberty)</li>
-<li><code>quarkus.langchain4j.mcp.weather.url</code>: Full URL to the MCP endpoint</li>
-<li>The <code>weather</code> part is just a configuration key name (can be any identifier)</li>
+<li><code>quarkus.langchain4j.mcp.liberty.transport-type</code>: Protocol type (streamable-http for Liberty)</li>
+<li><code>quarkus.langchain4j.mcp.liberty.url</code>: Full URL to the MCP endpoint</li>
 </ul>
 <h3 id="try-the-mcp-version">Try the MCP Version<a class="headerlink" href="#try-the-mcp-version" title="Permanent link"></a></h3>
 <p>Let’s see the remote CleaningTool in action:</p>
