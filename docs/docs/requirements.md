@@ -48,9 +48,15 @@ Once you have a key, set it as an environment variable:
 
 Run your Quarkus app in **dev mode** from the project directory:
 
-```bash
-./mvnw quarkus:dev
-```
+=== "Linux / macOS"
+    ```bash
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    mvnw quarkus:dev
+    ```
 
 Dev mode automatically recompiles your code on every change.
 Your app will be available at http://localhost:8080/.
@@ -74,18 +80,26 @@ Either clone the repository with Git or download a ZIP archive.
 
 ### With Git
 
-```shell
+```bash
 git clone https://github.com/mbroz2/jcon-europe-2026.git
 cd jcon-europe-2026
 ```
 
 ### Direct Download
 
-```shell
-curl -L -o workshop.zip https://github.com/mbroz2/jcon-europe-2026/archive/refs/heads/main.zip
-unzip workshop.zip
-cd jcon-europe-2026-main
-```
+=== "Linux / macOS"
+    ```bash
+    curl -L -o workshop.zip https://github.com/mbroz2/jcon-europe-2026/archive/refs/heads/main.zip
+    unzip workshop.zip
+    cd jcon-europe-2026-main
+    ```
+
+=== "Windows PowerShell"
+    ```powershell
+    Invoke-WebRequest -Uri https://github.com/mbroz2/jcon-europe-2026/archive/refs/heads/main.zip -OutFile workshop.zip
+    Expand-Archive workshop.zip -DestinationPath .
+    cd jcon-europe-2026-main
+    ```
 
 ---
 
@@ -96,9 +110,15 @@ To avoid bandwidth issues during the session, we recommend pre-downloading them.
 
 ### Warm up Maven
 
-```shell
-./mvnw verify
-```
+=== "Linux / macOS"
+    ```bash
+    ./mvnw verify
+    ```
+
+=== "Windows"
+    ```cmd
+    mvnw verify
+    ```
 
 !!! tip
     This command not only downloads dependencies but also verifies your setup before the workshop.
