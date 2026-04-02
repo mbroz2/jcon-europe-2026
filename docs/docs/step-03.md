@@ -601,9 +601,6 @@ Update `src/main/java/com/carmanagement/service/CarManagementService.java`:
 Once you've implemented all the parts:
 
 1. Start your application:
-
-
-
 === "Linux / macOS"
     ```bash
     ./mvnw quarkus:dev
