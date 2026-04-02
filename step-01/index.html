@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -714,8 +714,191 @@ You are not viewing the latest version.
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Component 4: The CleaningTool">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-component-liberty-mcp-cleaningtool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Component: Liberty MCP CleaningTool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonus Component: Liberty MCP CleaningTool">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is MCP?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-liberty-mcp-server-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Liberty MCP Server Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-liberty-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Liberty Server Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quarkus-agent-with-mcptoolbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quarkus Agent with @McpToolBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mcp-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MCP Server Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-the-mcp-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try the MCP Version
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try the MCP Version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stop-the-current-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Stop the Current Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-the-liberty-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Start the Liberty MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-the-quarkus-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Start the Quarkus Application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-the-remote-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Test the Remote Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences-local-vs-remote-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Differences: Local vs. Remote Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-remote-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Remote Tools?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When to Use Remote Tools?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-clean-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Clean Up
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#understanding-tool-execution-flow" class="md-nav__link">
@@ -1373,8 +1556,191 @@ You are not viewing the latest version.
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Component 4: The CleaningTool">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-component-liberty-mcp-cleaningtool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus Component: Liberty MCP CleaningTool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bonus Component: Liberty MCP CleaningTool">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is MCP?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCP Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-liberty-mcp-server-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Liberty MCP Server Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-liberty-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Liberty Server Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-quarkus-agent-with-mcptoolbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Quarkus Agent with @McpToolBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mcp-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MCP Server Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-the-mcp-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try the MCP Version
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try the MCP Version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stop-the-current-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Stop the Current Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-the-liberty-mcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Start the Liberty MCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-the-quarkus-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Start the Quarkus Application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-the-remote-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Test the Remote Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences-local-vs-remote-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Differences: Local vs. Remote Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-remote-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Remote Tools?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When to Use Remote Tools?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#6-clean-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Clean Up
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#understanding-tool-execution-flow" class="md-nav__link">
@@ -1968,6 +2334,258 @@ If you open the <code>pom.xml</code> file from the project, you will see this de
 <li>The method updates the car status to <code>AT_CLEANING</code>, if the <code>carInfo</code> is not <code>null</code></li>
 <li>The method returns a summary of the request (and prints a log messages)</li>
 </ul>
+<hr>
+<h2 id="bonus-component-liberty-mcp-cleaningtool">Bonus Component: Liberty MCP CleaningTool<a class="headerlink" href="#bonus-component-liberty-mcp-cleaningtool" title="Permanent link"></a></h2>
+<p>In the main step-01 implementation, the <code>CleaningTool</code> is a local Quarkus/LangChain4j tool that runs within the same application. However, tools can also be <strong>remote</strong> services accessed via protocols like <strong>MCP (Model Context Protocol)</strong>.</p>
+<p>The <strong>step-01-mcp</strong> variant demonstrates using a remote CleaningTool hosted on a Liberty MCP server. This showcases how agents can seamlessly interact with tools running in different processes or even on different machines.</p>
+<h3 id="what-is-mcp">What is MCP?<a class="headerlink" href="#what-is-mcp" title="Permanent link"></a></h3>
+<p><strong>Model Context Protocol (MCP)</strong> is an open protocol that standardizes how AI applications connect to external data sources and tools. It enables:</p>
+<ul>
+<li><strong>Remote tool execution</strong>: Tools can run on separate servers</li>
+<li><strong>Language-agnostic integration</strong>: Tools can be written in any language</li>
+<li><strong>Standardized communication</strong>: Consistent protocol for tool discovery and invocation</li>
+</ul>
+<h3 id="mcp-implementation-details">MCP Implementation Details<a class="headerlink" href="#mcp-implementation-details" title="Permanent link"></a></h3>
+<p>The MCP version requires changes in four key areas. Let’s examine each:</p>
+<h4 id="1-liberty-mcp-server-tool">1. Liberty MCP Server Tool<a class="headerlink" href="#1-liberty-mcp-server-tool" title="Permanent link"></a></h4>
+<p>The CleaningTool on the Liberty server uses Liberty-specific MCP annotations:</p>
+<div class="highlight"><span class="filename">CleaningTool.java</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/**</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cm"> * Tool for requesting cleaning operations.</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="cm"> */</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="hll"><span class="nd">@ApplicationScoped</span>
+</span><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CleaningTool</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="cm">/**</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="cm">     * Requests a cleaning based on the provided parameters.</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="cm">     *</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="cm">     * @param carNumber The car number</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="cm">     * @param carMake The car make</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="cm">     * @param carModel The car model</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="cm">     * @param carYear The car year</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="cm">     * @param exteriorWash Whether to request exterior wash</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="cm">     * @param interiorCleaning Whether to request interior cleaning</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="cm">     * @param detailing Whether to request detailing</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="cm">     * @param waxing Whether to request waxing</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="cm">     * @param requestText The cleaning request text</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="cm">     * @return A summary of the cleaning request</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="cm">     */</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="hll"><span class="w">    </span><span class="nd">@Tool</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"requestCleaning"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Requests a cleaning with the specified options for a car"</span><span class="p">)</span>
+</span><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">requestCleaning</span><span class="p">(</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"carNumber"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The car number"</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">carNumber</span><span class="p">,</span>
+</span><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"carMake"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The car make"</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">carMake</span><span class="p">,</span>
+</span><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"carModel"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The car model"</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">carModel</span><span class="p">,</span>
+</span><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"carYear"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"The car year"</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">carYear</span><span class="p">,</span>
+</span><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"exteriorWash"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Whether to request exterior wash"</span><span class="p">)</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">exteriorWash</span><span class="p">,</span>
+</span><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"interiorCleaning"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Whether to request interior cleaning"</span><span class="p">)</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">interiorCleaning</span><span class="p">,</span>
+</span><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"detailing"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Whether to request detailing"</span><span class="p">)</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">detailing</span><span class="p">,</span>
+</span><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"waxing"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Whether to request waxing"</span><span class="p">)</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">waxing</span><span class="p">,</span>
+</span><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="hll"><span class="w">            </span><span class="nd">@ToolArg</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"requestText"</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Additional cleaning request notes"</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">requestText</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Liberty MCP Server: requestCleaning Tool called. "</span><span class="p">);</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">        </span><span class="c1">// In a real implementation, this would make an API call to a cleaning service</span>
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">        </span><span class="c1">// or update a database with the cleaning request</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateCleaningSummary</span><span class="p">(</span><span class="n">carNumber</span><span class="p">,</span><span class="w"> </span><span class="n">carMake</span><span class="p">,</span><span class="w"> </span><span class="n">carModel</span><span class="p">,</span><span class="w"> </span><span class="n">carYear</span><span class="p">,</span>
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">                                              </span><span class="n">exteriorWash</span><span class="p">,</span><span class="w"> </span><span class="n">interiorCleaning</span><span class="p">,</span><span class="w"> </span><span class="n">detailing</span><span class="p">,</span>
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">                                              </span><span class="n">waxing</span><span class="p">,</span><span class="w"> </span><span class="n">requestText</span><span class="p">);</span>
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"\uD83D\uDE97 CleaningTool result: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>Uses <code>@Tool</code> from <code>io.openliberty.mcp.annotations</code> (not LangChain4j’s <code>@Tool</code>)</li>
+<li>Each parameter annotated with <code>@ToolArg</code> to provide metadata to MCP clients</li>
+<li>The tool is a standard CDI bean (<code>@ApplicationScoped</code>)</li>
+</ul>
+<h4 id="2-liberty-server-configuration">2. Liberty Server Configuration<a class="headerlink" href="#2-liberty-server-configuration" title="Permanent link"></a></h4>
+<p>The Liberty server must enable the MCP feature:</p>
+<div class="highlight"><span class="filename">server.xml</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">&lt;featureManager&gt;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nt">&lt;feature&gt;</span>cdi-4.0<span class="nt">&lt;/feature&gt;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="hll"><span class="w">    </span><span class="nt">&lt;feature&gt;</span>mcpServer-1.0<span class="nt">&lt;/feature&gt;</span>
+</span><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nt">&lt;/featureManager&gt;</span>
+</code></pre></div>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>The <code>mcpServer-1.0</code> feature enables MCP protocol support</li>
+<li>Tools are automatically discovered and exposed via the MCP endpoint</li>
+<li>The MCP endpoint is available at <code>/mcp</code> under the application context root</li>
+</ul>
+<h4 id="3-quarkus-agent-with-mcptoolbox">3. Quarkus Agent with @McpToolBox<a class="headerlink" href="#3-quarkus-agent-with-mcptoolbox" title="Permanent link"></a></h4>
+<p>The CleaningAgent in the Quarkus application uses <code>@McpToolBox</code> instead of <code>@ToolBox</code>:</p>
+<div class="highlight"><span class="filename">CleaningAgent.java</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/**</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="cm"> * Agent that determines what cleaning services to request.</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="cm"> */</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">CleaningAgent</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nd">@SystemMessage</span><span class="p">(</span><span class="s">"""</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="s">        You handle intake for the cleaning department of a car rental company.</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="s">        It is your job to submit a request to the provided requestCleaning function to take action based on the provided feedback.</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="s">        Be specific about what services are needed.</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="s">        If cleaning was requested, respond with "CLEANING_REQUESTED".</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="s">        If no cleaning is needed based on the feedback, respond with "CLEANING_NOT_REQUIRED".</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="s">        """</span><span class="p">)</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="nd">@UserMessage</span><span class="p">(</span><span class="s">"""</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="s">        Car Information:</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="s">        Make: {carMake}</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="s">        Model: {carModel}</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="s">        Year: {carYear}</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="s">        Car Number: {carNumber}</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="s">        Feedback:</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="s">        Rental Feedback: {rentalFeedback}</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="s">        Cleaning Feedback: {cleaningFeedback}</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="s">        """</span><span class="p">)</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">    </span><span class="nd">@Agent</span><span class="p">(</span><span class="s">"Cleaning specialist. Determines what cleaning services are needed."</span><span class="p">)</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="hll"><span class="w">    </span><span class="nd">@McpToolBox</span>
+</span><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">processCleaning</span><span class="p">(</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">carMake</span><span class="p">,</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">carModel</span><span class="p">,</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="w">            </span><span class="n">Integer</span><span class="w"> </span><span class="n">carYear</span><span class="p">,</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">            </span><span class="n">Integer</span><span class="w"> </span><span class="n">carNumber</span><span class="p">,</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">rentalFeedback</span><span class="p">,</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">cleaningFeedback</span><span class="p">);</span>
+<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><code>@McpToolBox</code> tells Quarkus to discover tools from configured MCP servers</li>
+<li>No need to specify which tools — all tools from the MCP server are available</li>
+<li>The agent code remains otherwise identical to the local tool version</li>
+</ul>
+<h4 id="4-mcp-server-configuration">4. MCP Server Configuration<a class="headerlink" href="#4-mcp-server-configuration" title="Permanent link"></a></h4>
+<p>The Quarkus application must be configured to connect to the MCP server:</p>
+<div class="highlight"><span class="filename">application.properties</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># MCP Server connection</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="hll"><span class="na">quarkus.langchain4j.mcp.weather.transport-type</span><span class="o">=</span><span class="s">streamable-http</span>
+</span><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="hll"><span class="na">quarkus.langchain4j.mcp.weather.url</span><span class="o">=</span><span class="s">http://localhost:9080/bonus-liberty-mcp/mcp</span>
+</span></code></pre></div>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li><code>quarkus.langchain4j.mcp.weather.transport-type</code>: Protocol type (streamable-http for Liberty)</li>
+<li><code>quarkus.langchain4j.mcp.weather.url</code>: Full URL to the MCP endpoint</li>
+<li>The <code>weather</code> part is just a configuration key name (can be any identifier)</li>
+</ul>
+<h3 id="try-the-mcp-version">Try the MCP Version<a class="headerlink" href="#try-the-mcp-version" title="Permanent link"></a></h3>
+<p>Let’s see the remote CleaningTool in action:</p>
+<h4 id="1-stop-the-current-server">1. Stop the Current Server<a class="headerlink" href="#1-stop-the-current-server" title="Permanent link"></a></h4>
+<p>If you have the step-01 Quarkus server running, stop it first (press <code>Ctrl+C</code> in the terminal).</p>
+<h4 id="2-start-the-liberty-mcp-server">2. Start the Liberty MCP Server<a class="headerlink" href="#2-start-the-liberty-mcp-server" title="Permanent link"></a></h4>
+<p>Switch to the step-01-mcp directory and start the Liberty server that hosts the remote CleaningTool:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Linux / macOS</label><label for="__tabbed_2_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>../step-01-mcp/bonus-liberty-mcp
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>mvn<span class="w"> </span>liberty:run
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cd ..\step-01-mcp\bonus-liberty-mcp
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>mvn liberty:run
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Wait for the Liberty server to start. You should see:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>[INFO] [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet.
+</code></pre></div>
+<h4 id="4-start-the-quarkus-application">4. Start the Quarkus Application<a class="headerlink" href="#4-start-the-quarkus-application" title="Permanent link"></a></h4>
+<p>Open a <strong>new terminal</strong> and start the Quarkus application:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Linux / macOS</label><label for="__tabbed_3_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">cd</span><span class="w"> </span>step-01-mcp
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>./mvnw<span class="w"> </span>quarkus:dev
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>cd step-01-mcp
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>mvnw quarkus:dev
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="5-test-the-remote-tool">5. Test the Remote Tool<a class="headerlink" href="#5-test-the-remote-tool" title="Permanent link"></a></h4>
+<p>Open your browser to <a href="http://localhost:8080" target="_blank">http://localhost:8080</a> and try the same test as before:</p>
+<p><strong>Test: Car Needs Cleaning</strong></p>
+<p>In the <strong>Returns &gt; Rental Return</strong> section, select a car and enter:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Car has dog hair all over the back seat
+</code></pre></div>
+<p>Click <strong>Return</strong>.</p>
+<p><strong>What’s different?</strong></p>
+<ul>
+<li>The agent still analyzes the feedback</li>
+<li>But now it calls the <strong>remote</strong> CleaningTool on the Liberty server</li>
+<li>The tool executes on Liberty and returns the result</li>
+<li>The agent receives the response and updates the car status</li>
+</ul>
+<p>Check both terminal windows:</p>
+<ul>
+<li><strong>Liberty terminal</strong>: You’ll see the MCP tool being invoked</li>
+<li><strong>Quarkus terminal</strong>: You’ll see the agent making the remote call</li>
+</ul>
+<h3 id="key-differences-local-vs-remote-tools">Key Differences: Local vs. Remote Tools<a class="headerlink" href="#key-differences-local-vs-remote-tools" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Local Tool (step-01)</th>
+<th>Remote Tool (step-01-mcp)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Location</strong></td>
+<td>Runs in same Quarkus process</td>
+<td>Runs on separate Liberty server</td>
+</tr>
+<tr>
+<td><strong>Annotation</strong></td>
+<td><code>@ToolBox(CleaningTool.class)</code></td>
+<td><code>@McpToolBox</code></td>
+</tr>
+<tr>
+<td><strong>Configuration</strong></td>
+<td>None needed</td>
+<td>MCP server URL in <code>application.properties</code></td>
+</tr>
+<tr>
+<td><strong>Use Case</strong></td>
+<td>Simple, single-app scenarios</td>
+<td>Distributed systems, shared tools</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-to-use-remote-tools">When to Use Remote Tools?<a class="headerlink" href="#when-to-use-remote-tools" title="Permanent link"></a></h3>
+<p>Consider remote tools when:</p>
+<ul>
+<li><strong>Sharing tools</strong> across multiple applications</li>
+<li><strong>Isolating concerns</strong>: Tool logic separate from agent logic</li>
+<li><strong>Language diversity</strong>: Tools written in different languages</li>
+<li><strong>Scalability</strong>: Tools need independent scaling</li>
+<li><strong>Legacy integration</strong>: Connecting to existing services</li>
+</ul>
+<h4 id="6-clean-up">6. Clean Up<a class="headerlink" href="#6-clean-up" title="Permanent link"></a></h4>
+<p>When you’re done experimenting:</p>
+<ol>
+<li>Stop the Quarkus server (press <code>Ctrl+C</code> in the Quarkus terminal)</li>
+<li>Stop the Liberty server (press <code>Ctrl+C</code> in the Liberty terminal)</li>
+<li>Return to the original step-01 directory:</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Linux / macOS</label><label for="__tabbed_4_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">cd</span><span class="w"> </span>../step-01
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>cd ..\step-01
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="understanding-tool-execution-flow">Understanding Tool Execution Flow<a class="headerlink" href="#understanding-tool-execution-flow" title="Permanent link"></a></h3>
 <p>Here is the sequence of actions happening when the agent is invoked:</p>
 <ol>
@@ -2089,21 +2707,21 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <p>Try these experiments to deepen your understanding:</p>
 <h3 id="1-test-edge-cases">1. Test Edge Cases<a class="headerlink" href="#1-test-edge-cases" title="Permanent link"></a></h3>
 <p>Try different feedback scenarios:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>The trunk smells like fish
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>The trunk smells like fish
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Minor scratch on the bumper
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Minor scratch on the bumper
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Spotless condition
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Spotless condition
 </code></pre></div>
 <p>What does the agent decide for each? Does it call the cleaning tool?</p>
 <h3 id="2-modify-the-system-message">2. Modify the System Message<a class="headerlink" href="#2-modify-the-system-message" title="Permanent link"></a></h3>
 <p>Edit <code>CleaningAgent.java</code> and change the system message. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nd">@SystemMessage</span><span class="p">(</span><span class="s">"""</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="s">    You are a very picky cleaning intake specialist.</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="s">    Request a full detail (exterior, interior, waxing, detailing)</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="s">    unless the car is absolutely perfect.</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="s">    If perfect, respond with "CLEANING_NOT_REQUIRED".</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="s">    """</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nd">@SystemMessage</span><span class="p">(</span><span class="s">"""</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="s">    You are a very picky cleaning intake specialist.</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="s">    Request a full detail (exterior, interior, waxing, detailing)</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="s">    unless the car is absolutely perfect.</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="s">    If perfect, respond with "CLEANING_NOT_REQUIRED".</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="s">    """</span><span class="p">)</span>
 </code></pre></div>
 <p>How does this change the agent’s behavior?</p>
 <h3 id="3-add-more-tool-parameters">3. Add More Tool Parameters<a class="headerlink" href="#3-add-more-tool-parameters" title="Permanent link"></a></h3>
@@ -2114,7 +2732,7 @@ Does the agent automatically learn to use it?</p>
 <details class="warning">
 <summary>Error: OPENAI_API_KEY not set</summary>
 <p>Make sure you’ve exported the environment variable:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>sk-your-key-here
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>sk-your-key-here
 </code></pre></div>
 <p>Then restart the application.</p>
 </details>
