@@ -371,9 +371,8 @@ The Quarkus application must be configured to connect to the MCP server:
 
 **Key Points:**
 
-- `quarkus.langchain4j.mcp.weather.transport-type`: Protocol type (streamable-http for Liberty)
-- `quarkus.langchain4j.mcp.weather.url`: Full URL to the MCP endpoint
-- The `weather` part is just a configuration key name (can be any identifier)
+- `quarkus.langchain4j.mcp.liberty.transport-type`: Protocol type (streamable-http for Liberty)
+- `quarkus.langchain4j.mcp.liberty.url`: Full URL to the MCP endpoint
 
 
 ### Try the MCP Version
