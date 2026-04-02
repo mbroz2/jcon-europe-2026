@@ -130,7 +130,7 @@ To avoid bandwidth issues during the session, we recommend pre-downloading them.
 !!! tip
     Open the project from `step-01` in your IDE and use that directory throughout the workshop.
 
-If you get stuck, simply switch to the `step-xx` directory that is after the the last step you completed.
+If you get stuck, simply switch to the `step-xx` directory of the last completed step.
 
 ---
 

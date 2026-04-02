@@ -32,9 +32,8 @@ Alternatively, you may serve the instructions locally by following the [docs/REA
 
 ## 🚀 Getting Started
 
-Each `step-XX` directory is the starting point for the corresponding docs/tutorial.
-
-If you'd like to experience the final result of a step, navigate to the directory of the following step and then run the following command:
+The final state of each step is available in the [step-XX](step-XX) directory.
+You can quickly jump to the final state of a step by navigating to the corresponding directory, and then running the following command:
 
 ```shell
 ./mvnw quarkus:dev
