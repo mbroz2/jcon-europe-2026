@@ -186,7 +186,7 @@ looking for keywords like "wrecked", "totaled", or "crashed" that indicate sever
 
 ### Create the PricingAgent
 
-The Miles & Smiles management feels comfortable using AI to determine the value of their cars. A wise decision? That remains to be seen 😉.
+The Miles of Smiles management feels comfortable using AI to determine the value of their cars. A wise decision? That remains to be seen 😉.
 
 Either way, let's create the agent.
 We'll add some prompt engineering in the system message to 'train' the AI model on how to calculate
@@ -297,7 +297,7 @@ This method is automatically called by the framework before the supervisor begin
 
 ### Updated FeedbackWorkflow
 
-We need to update the `FeedbackWorkflow` and add the `DispositionFeedbackAgent` to the parallel feedback workflow.
+We need to update the `FeedbackWorkflow` to add the `DispositionFeedbackAgent` to the parallel feedback workflow.
 
 Update `src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java`:
 
@@ -444,7 +444,7 @@ flowchart TD
     CR --> FSA
     
     FSA -->|Severe damage detected| PA[Invoke PricingAgent]
-    PA --> PV[Estimate: $12,000<br/>2019 Toyota Camry, totaled]
+    PA --> PV[Estimate: $12,000<br/>2014 Ford F-150, totaled]
     PV --> DA[Invoke DispositionAgent]
     DA --> DD[Decision: SCRAP or SELL<br/>Beyond economical repair]
     DD --> Result([Result: PENDING_DISPOSITION<br/>Condition: SCRAP/SELL - totaled])
