@@ -299,6 +299,192 @@ The concept is similar to function calling in AI services: the LLM decides when 
     - Parameters define what information the agent must provide
 - The method updates the car status to `AT_CLEANING`, if the `carInfo` is not `null`
 - The method returns a summary of the request (and prints a log messages)
+---
+
+## Bonus Component: Liberty MCP CleaningTool
+
+In the main step-01 implementation, the `CleaningTool` is a local Quarkus/LangChain4j tool that runs within the same application. However, tools can also be **remote** services accessed via protocols like **MCP (Model Context Protocol)**.
+
+The **step-01-mcp** variant demonstrates using a remote CleaningTool hosted on a Liberty MCP server. This showcases how agents can seamlessly interact with tools running in different processes or even on different machines.
+
+### What is MCP?
+
+**Model Context Protocol (MCP)** is an open protocol that standardizes how AI applications connect to external data sources and tools. It enables:
+
+- **Remote tool execution**: Tools can run on separate servers
+- **Language-agnostic integration**: Tools can be written in any language
+- **Standardized communication**: Consistent protocol for tool discovery and invocation
+
+### MCP Implementation Details
+
+The MCP version requires changes in four key areas. Let's examine each:
+
+#### 1. Liberty MCP Server Tool
+
+The CleaningTool on the Liberty server uses Liberty-specific MCP annotations:
+
+```java hl_lines="4 21 23-31" title="CleaningTool.java"
+--8<-- "../../step-01-mcp/bonus-liberty-mcp/src/main/java/com/demo/mcp/CleaningTool.java:libertyCleaningTool"
+```
+
+**Key Points:**
+
+- Uses `@Tool` from `io.openliberty.mcp.annotations` (not LangChain4j's `@Tool`)
+- Each parameter annotated with `@ToolArg` to provide metadata to MCP clients
+- The tool is a standard CDI bean (`@ApplicationScoped`)
+
+#### 2. Liberty Server Configuration
+
+The Liberty server must enable the MCP feature:
+
+```xml hl_lines="3" title="server.xml"
+-8<- "../../step-01-mcp/bonus-liberty-mcp/src/main/liberty/config/server.xml:mcpFeature"
+```
+
+**Key Points:**
+
+- The `mcpServer-1.0` feature enables MCP protocol support
+- Tools are automatically discovered and exposed via the MCP endpoint
+- The MCP endpoint is available at `/mcp` under the application context root
+
+#### 3. Quarkus Agent with @McpToolBox
+
+The CleaningAgent in the Quarkus application uses `@McpToolBox` instead of `@ToolBox`:
+
+```java hl_lines="25" title="CleaningAgent.java"
+--8<-- "../../step-01-mcp/src/main/java/com/carmanagement/agentic/agents/CleaningAgent.java:cleaningAgent"
+```
+
+**Key Points:**
+
+- `@McpToolBox` tells Quarkus to discover tools from configured MCP servers
+- No need to specify which tools — all tools from the MCP server are available
+- The agent code remains otherwise identical to the local tool version
+
+#### 4. MCP Server Configuration
+
+The Quarkus application must be configured to connect to the MCP server:
+
+```properties hl_lines="2-3" title="application.properties"
+--8<-- "../../step-01-mcp/src/main/resources/application.properties:mcpConfig"
+```
+
+**Key Points:**
+
+- `quarkus.langchain4j.mcp.weather.transport-type`: Protocol type (streamable-http for Liberty)
+- `quarkus.langchain4j.mcp.weather.url`: Full URL to the MCP endpoint
+- The `weather` part is just a configuration key name (can be any identifier)
+
+
+### Try the MCP Version
+
+Let's see the remote CleaningTool in action:
+
+#### 1. Stop the Current Server
+
+If you have the step-01 Quarkus server running, stop it first (press `Ctrl+C` in the terminal).
+
+#### 2. Start the Liberty MCP Server
+
+Switch to the step-01-mcp directory and start the Liberty server that hosts the remote CleaningTool:
+
+=== "Linux / macOS"
+    ```bash
+    cd ../step-01-mcp/bonus-liberty-mcp
+    mvn liberty:run
+    ```
+
+=== "Windows"
+    ```cmd
+    cd ..\step-01-mcp\bonus-liberty-mcp
+    mvn liberty:run
+    ```
+
+Wait for the Liberty server to start. You should see:
+
+```
+[INFO] [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet.
+```
+
+#### 4. Start the Quarkus Application
+
+Open a **new terminal** and start the Quarkus application:
+
+=== "Linux / macOS"
+    ```bash
+    cd step-01-mcp
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    cd step-01-mcp
+    mvnw quarkus:dev
+    ```
+
+#### 5. Test the Remote Tool
+
+Open your browser to [http://localhost:8080](http://localhost:8080){target="_blank"} and try the same test as before:
+
+**Test: Car Needs Cleaning**
+
+In the **Returns > Rental Return** section, select a car and enter:
+
+```
+Car has dog hair all over the back seat
+```
+
+Click **Return**.
+
+**What's different?**
+
+- The agent still analyzes the feedback
+- But now it calls the **remote** CleaningTool on the Liberty server
+- The tool executes on Liberty and returns the result
+- The agent receives the response and updates the car status
+
+Check both terminal windows:
+
+- **Liberty terminal**: You'll see the MCP tool being invoked
+- **Quarkus terminal**: You'll see the agent making the remote call
+
+### Key Differences: Local vs. Remote Tools
+
+| Aspect | Local Tool (step-01) | Remote Tool (step-01-mcp) |
+|--------|---------------------|---------------------------|
+| **Location** | Runs in same Quarkus process | Runs on separate Liberty server |
+| **Annotation** | `@ToolBox(CleaningTool.class)` | `@McpToolBox` |
+| **Configuration** | None needed | MCP server URL in `application.properties` |
+| **Use Case** | Simple, single-app scenarios | Distributed systems, shared tools |
+
+### When to Use Remote Tools?
+
+Consider remote tools when:
+
+- **Sharing tools** across multiple applications
+- **Isolating concerns**: Tool logic separate from agent logic
+- **Language diversity**: Tools written in different languages
+- **Scalability**: Tools need independent scaling
+- **Legacy integration**: Connecting to existing services
+
+#### 6. Clean Up
+
+When you're done experimenting:
+
+1. Stop the Quarkus server (press `Ctrl+C` in the Quarkus terminal)
+2. Stop the Liberty server (press `Ctrl+C` in the Liberty terminal)
+3. Return to the original step-01 directory:
+
+=== "Linux / macOS"
+    ```bash
+    cd ../step-01
+    ```
+
+=== "Windows"
+    ```cmd
+    cd ..\step-01
+    ```
+
 
 ### Understanding Tool Execution Flow
 
