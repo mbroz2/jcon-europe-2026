@@ -466,9 +466,15 @@ We extract both the updated condition and whether a cleaning is required, then u
 
 Start the application:
 
-```bash
-./mvnw quarkus:dev
-```
+=== "Linux / macOS"
+    ```bash
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    mvnw quarkus:dev
+    ```
 
 Open your browser to [http://localhost:8080](http://localhost:8080){target="_blank"}.
 
