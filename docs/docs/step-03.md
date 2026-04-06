@@ -181,7 +181,7 @@ The `FeedbackWorkflow` runs multiple agents **simultaneously**:
 --8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java:parallel-agent"
 ```
 
-The agents analyze different aspects (cleaning vs. maintenance) and don't depend on each other, so running them concurrently improves performance.
+The agents analyze different aspects (cleaning vs. maintenance) and don't depend on each other, so it is safe to run them concurrently.
 
 #### Level 2b: Conditional Action Workflow
 
