@@ -329,9 +329,9 @@ The CleaningTool on the Liberty server uses Liberty-specific MCP annotations:
 
 **Key Points:**
 
+- The tool is a standard CDI bean (`@ApplicationScoped`)
 - Uses `@Tool` from `io.openliberty.mcp.annotations` (not LangChain4j's `@Tool`)
 - Each parameter annotated with `@ToolArg` to provide metadata to MCP clients
-- The tool is a standard CDI bean (`@ApplicationScoped`)
 
 #### 2. Liberty Server Configuration
 
