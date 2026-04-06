@@ -98,17 +98,17 @@ graph TD
     Start[Start] --> Check1{Condition 1?}
     Check1 -->|Yes| A[Agent 1]
     Check1 -->|No| Check2{Condition 2?}
-    A --> End[Continue]
+    A --> Check2
     Check2 -->|Yes| B[Agent 2]
     Check2 -->|No| End
-    B --> End
+    B --> End[Continue]
     style A fill:#FFD700
     style B fill:#FFD700
 ```
 
 **When to use:** When different execution paths are needed based on runtime data (e.g. the output of a previous agent execution).
 
-**Example:** If maintenance needed → send to maintenance, else if cleaning needed → send to cleaning
+**Example:** If maintenance needed → send to maintenance, if maintenance not needed and cleaning needed → send to cleaning
 
 ---
 
@@ -208,7 +208,6 @@ Before starting:
         copy ..\step-02\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
         copy ..\step-02\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
         copy ..\step-02\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
-        copy ..\step-02\src\main\resources\import.sql .\src\main\resources\import.sql
         copy ..\step-02\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
         ```
 
