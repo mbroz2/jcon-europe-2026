@@ -199,7 +199,6 @@ Before starting:
         cp ../step-02/src/main/resources/META-INF/resources/css/styles.css ./src/main/resources/META-INF/resources/css/styles.css
         cp ../step-02/src/main/resources/META-INF/resources/js/app.js ./src/main/resources/META-INF/resources/js/app.js
         cp ../step-02/src/main/resources/META-INF/resources/index.html ./src/main/resources/META-INF/resources/index.html
-        cp ../step-02/src/main/resources/import.sql ./src/main/resources/import.sql
         cp ../step-02/src/main/java/com/carmanagement/model/CarInfo.java ./src/main/java/com/carmanagement/model/CarInfo.java
         ```
 
@@ -467,9 +466,15 @@ We extract both the updated condition and whether a cleaning is required, then u
 
 Start the application:
 
-```bash
-./mvnw quarkus:dev
-```
+=== "Linux / macOS"
+    ```bash
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    mvnw quarkus:dev
+    ```
 
 Open your browser to [http://localhost:8080](http://localhost:8080){target="_blank"}.
 
@@ -498,7 +503,7 @@ Click **Return**.
 
 ### Check the Logs
 
-You should see both agents executing in sequential:
+You should see the two agents executed sequentially:
 
 ```
 🚗 CleaningTool result: Cleaning requested for Toyota Camry (2021), Car #4:
