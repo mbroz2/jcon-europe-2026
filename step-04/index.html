@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -1702,7 +1702,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <p>This agent runs in <strong>parallel</strong> with the other feedback agents,
 looking for keywords like “wrecked”, “totaled”, or “crashed” that indicate severe damage.</p>
 <h3 id="create-the-pricingagent">Create the PricingAgent<a class="headerlink" href="#create-the-pricingagent" title="Permanent link"></a></h3>
-<p>The Miles &amp; Smiles management feels comfortable using AI to determine the value of their cars. A wise decision? That remains to be seen 😉.</p>
+<p>The Miles of Smiles management feels comfortable using AI to determine the value of their cars. A wise decision? That remains to be seen 😉.</p>
 <p>Either way, let’s create the agent.
 We’ll add some prompt engineering in the system message to ‘train’ the AI model on how to calculate
 the value based on the brand, its state and its age.
@@ -2002,7 +2002,7 @@ the better the supervisor will be at deciding which agents to invoke.</p>
 </ul>
 <p>This method is automatically called by the framework before the supervisor begins orchestration, providing it with the necessary context to make informed decisions about which sub-agents to invoke.</p>
 <h3 id="updated-feedbackworkflow">Updated FeedbackWorkflow<a class="headerlink" href="#updated-feedbackworkflow" title="Permanent link"></a></h3>
-<p>We need to update the <code>FeedbackWorkflow</code> and add the <code>DispositionFeedbackAgent</code> to the parallel feedback workflow.</p>
+<p>We need to update the <code>FeedbackWorkflow</code> to add the <code>DispositionFeedbackAgent</code> to the parallel feedback workflow.</p>
 <p>Update <code>src/main/java/com/carmanagement/agentic/workflow/FeedbackWorkflow.java</code>:</p>
 <div class="highlight"><span class="filename">FeedbackWorkflow.java</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.carmanagement.agentic.workflow</span><span class="p">;</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
@@ -2228,7 +2228,7 @@ Our autonomous system can handle this scenario as well.</p>
     CR --&gt; FSA
 
     FSA --&gt;|Severe damage detected| PA[Invoke PricingAgent]
-    PA --&gt; PV[Estimate: $12,000&lt;br/&gt;2019 Toyota Camry, totaled]
+    PA --&gt; PV[Estimate: $12,000&lt;br/&gt;2014 Ford F-150, totaled]
     PV --&gt; DA[Invoke DispositionAgent]
     DA --&gt; DD[Decision: SCRAP or SELL&lt;br/&gt;Beyond economical repair]
     DD --&gt; Result([Result: PENDING_DISPOSITION&lt;br/&gt;Condition: SCRAP/SELL - totaled])

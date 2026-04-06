@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -1973,10 +1973,9 @@ You are not viewing the latest version.
 <li>The <code>CleaningAgent</code> determined if a car needed cleaning</li>
 <li>The <code>CarConditionFeedbackAgent</code> updated the car’s condition based on feedback</li>
 </ol>
-<p>A single sequential pattern works well you just need agents to run one after another.
+<p>A single sequential pattern works well when you just need agents to run one after another.
 However, real-world scenarios often require more sophisticated orchestration patterns.</p>
-<p>In this step, you’ll learn how to <strong>compose workflows by nesting them within other workflows</strong> to build complex
-agentic systems, by creating multi-level orchestration patterns that combine mixed pattern executions.</p>
+<p>In this step, you’ll learn how to <strong>compose workflows by nesting them within other workflows</strong> to build complex agentic systems. You’ll create multi-level orchestration patterns that combine different execution patterns (sequential, parallel, and conditional).</p>
 <hr>
 <h2 id="new-requirement-from-miles-of-smiles-management-comprehensive-car-management">New Requirement from Miles of Smiles Management: Comprehensive Car Management<a class="headerlink" href="#new-requirement-from-miles-of-smiles-management-comprehensive-car-management" title="Permanent link"></a></h2>
 <p>The Miles of Smiles management team wants a more sophisticated car management system.
@@ -2353,7 +2352,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <ul>
 <li>FeedbackWorkflow: Analyzes maintenance feedback</li>
 <li>CarAssignmentWorkflow: Routes to CleaningAgent</li>
-<li>Result: Car goes to cleaning after maintenance</li>
+<li>Result: Car goes from maintenance to cleaning</li>
 </ul>
 <h3 id="check-the-logs">Check the Logs<a class="headerlink" href="#check-the-logs" title="Permanent link"></a></h3>
 <p>Watch the console output to see the workflow execution:</p>
@@ -3007,8 +3006,7 @@ and then the CarAssignmentWorkflow to actually assign the car to the appropriate
 <li><code>@SequenceAgent</code> runs the workflows and agents in order</li>
 <li>Sub-agents can be <strong>other workflows</strong> (FeedbackWorkflow, CarAssignmentWorkflow)</li>
 <li>All agents share the same <code>AgenticScope</code></li>
-<li>The <code>@Output</code> method retrieves the maintenanceRequest and cleaningRequest from the AgenticScope
-to determine what needs to happen next, and then returns this result.</li>
+<li>The <code>@Output</code> method retrieves the carCondition, maintenanceRequest and cleaningRequest from the AgenticScope, determines what needs to happen next, and then returns the result.</li>
 </ul>
 <h4 id="update-the-service-layer">Update the Service Layer<a class="headerlink" href="#update-the-service-layer" title="Permanent link"></a></h4>
 <p>And finally, we’ll update the Car Management service to handle the result from the Agentic AI workflow and update the system accordingly.
@@ -3096,16 +3094,26 @@ Update <code>src/main/java/com/carmanagement/service/CarManagementService.java</
 <h3 id="test-your-implementation">Test Your Implementation<a class="headerlink" href="#test-your-implementation" title="Permanent link"></a></h3>
 <p>Once you’ve implemented all the parts:</p>
 <ol>
-<li>
-<p>Start your application:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>./mvnw<span class="w"> </span>quarkus:dev
+<li>Start your application:</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Linux / macOS</label><label for="__tabbed_3_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>./mvnw<span class="w"> </span>quarkus:dev
 </code></pre></div>
-</li>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>mvnw quarkus:dev
+</code></pre></div>
+</div>
+</div>
+</div>
+<ol>
 <li>
 <p>Open <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></p>
 </li>
 <li>
-<p>Test with the scenarios described earlier</p>
+<p>Test with the scenarios described earlier (in the Test Different Scenarios section)</p>
 </li>
 <li>
 <p>Compare your implementation with the complete solution in <code>step-03</code></p>
@@ -3160,8 +3168,8 @@ Update <code>src/main/java/com/carmanagement/service/CarManagementService.java</
 <hr>
 <h2 id="whats-next">What’s Next?<a class="headerlink" href="#whats-next" title="Permanent link"></a></h2>
 <p>You’ve built a sophisticated multi-level nested workflow combining sequence, parallel, and conditional execution!</p>
-<p>In <strong>Step 04</strong>, you’ll learn about <strong>Agent-to-Agent (A2A) communication</strong> — connecting your workflows to remote agents running in separate systems!</p>
-<p><a href="../step-04/">Continue to Step 04 - Using Remote Agents (A2A)</a></p></div>
+<p>In <strong>Step 04</strong>, you’ll learn about <strong>using a supervisor pattern for dynamic orchestration</strong> of a set of agents!</p>
+<p><a href="../step-04/">Continue to Step 04 - Supervisor Pattern for Dynamic Orchestration</a></p></div>
 
 
 
