@@ -288,7 +288,7 @@ Tools enable agents to call functions that can take action. These tools can be l
 
 The concept is similar to function calling in AI services: the LLM decides when to invoke a tool based on the task at hand, and the tool performs the actual action.
 
-```java hl_lines="4 21 40 47-48" title="CleaningTool.java"
+```java hl_lines="4 24 42 49-50" title="CleaningTool.java"
 --8<-- "../../step-01/src/main/java/com/carmanagement/agentic/tools/CleaningTool.java:CleaningTool"
 ```
 
