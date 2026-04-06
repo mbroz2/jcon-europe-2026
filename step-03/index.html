@@ -2136,12 +2136,11 @@ We’re going to implement:</p>
     BEnd --&gt; C[Step 2: CarAssignmentWorkflow&lt;br/&gt;Conditional - Level 2]
     C --&gt; C1{Maintenance&lt;br/&gt;needed?}
     C1 --&gt;|Yes| C2[MaintenanceAgent]
-    C1 --&gt;|No| C3{Cleaning&lt;br/&gt;needed?}
+    C1 --&gt;|No| C3{Maintenance not needed and Cleaning&lt;br/&gt;needed?}
     C3 --&gt;|Yes| C4[CleaningAgent]
-    C3 --&gt;|No| C5[Skip both]
-    C2 --&gt; CEnd[Action complete]
+    C2 --&gt; C3
+    C3 --&gt;|No| CEnd[Action complete]
     C4 --&gt; CEnd
-    C5 --&gt; CEnd
 
     CEnd --&gt; D[Step 3: CarConditionFeedbackAgent&lt;br/&gt;Single Agent - Level 1]
     D --&gt; End([Updated Car Conditions])
@@ -2171,8 +2170,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <p><strong>CarAssignmentWorkflow</strong> (Conditional): Routes the car based on the analysis:</p>
 <ul>
 <li>If maintenance needed, then send to maintenance team</li>
-<li>Else if cleaning needed, then send to cleaning</li>
-<li>Else: do nothing</li>
+<li>if maintenance not needed and cleaning needed, then send to cleaning</li>
 </ul>
 </li>
 <li>
@@ -2193,7 +2191,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <div class="highlight"><span class="filename">FeedbackWorkflow.java</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="hll"><span class="nd">@ParallelAgent</span><span class="p">(</span><span class="n">outputKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"feedbackResult"</span><span class="p">,</span>
 </span><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="hll"><span class="w">        </span><span class="n">subAgents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">CleaningFeedbackAgent</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">MaintenanceFeedbackAgent</span><span class="p">.</span><span class="na">class</span><span class="w"> </span><span class="p">})</span>
 </span></code></pre></div>
-<p>The agents analyze different aspects (cleaning vs. maintenance) and don’t depend on each other, so running them concurrently improves performance.</p>
+<p>The agents analyze different aspects (cleaning vs. maintenance) and don’t depend on each other, so it is safe to run them concurrently.</p>
 <h4 id="level-2b-conditional-action-workflow">Level 2b: Conditional Action Workflow<a class="headerlink" href="#level-2b-conditional-action-workflow" title="Permanent link"></a></h4>
 <p>The <code>CarAssignmentWorkflow</code> uses <strong>activation conditions</strong> to intelligently route cars to the appropriate team based on the analysis it has done:</p>
 <div class="highlight"><span class="filename">CarAssignmentWorkflow.java</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="hll"><span class="nd">@ConditionalAgent</span><span class="p">(</span><span class="n">outputKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"analysisResult"</span><span class="p">,</span>
@@ -2213,8 +2211,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="hll"><span class="nd">@ActivationCondition</span><span class="p">(</span><span class="n">CleaningAgent</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-</span><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">assignToCleaning</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">cleaningRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isRequired</span><span class="p">(</span><span class="n">cleaningRequest</span><span class="p">);</span>
+</span><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">assignToCleaning</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">maintenanceRequest</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cleaningRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">isRequired</span><span class="p">(</span><span class="n">maintenanceRequest</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isRequired</span><span class="p">(</span><span class="n">cleaningRequest</span><span class="p">);</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">}</span>
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="hll"><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isRequired</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2222,11 +2220,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>If <code>assignToMaintenance()</code> returns <code>true</code> → MaintenanceAgent runs, CleaningAgent skipped</li>
-<li>Else if <code>assignToCleaning()</code> returns <code>true</code> → CleaningAgent runs</li>
-<li>Else → Both skipped</li>
+<li>If <code>assignToMaintenance()</code> returns <code>true</code> → MaintenanceAgent runs</li>
+<li>If <code>assignToCleaning()</code> returns <code>true</code> → CleaningAgent runs</li>
 </ul>
-<p>This implements <strong>priority routing</strong>: maintenance takes precedence over cleaning.</p>
+<p>The logic in <code>assignToCleaning()</code> will only let the CleaningAgent run if no maintenance is required. This implements <strong>priority routing</strong>: maintenance takes precedence over cleaning.</p>
 <hr>
 <h2 id="try-the-complete-solution">Try the Complete Solution<a class="headerlink" href="#try-the-complete-solution" title="Permanent link"></a></h2>
 <p>Now that you understand the architecture, let’s see it in action!</p>
@@ -2244,7 +2241,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <p>Try these scenarios to see how the nested workflows route cars:</p>
 <h4 id="scenario-1-maintenance-priority">Scenario 1: Maintenance Priority<a class="headerlink" href="#scenario-1-maintenance-priority" title="Permanent link"></a></h4>
 <p>Enter the following text in the feedback field for the Honda Civic:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Engine making strange noise and car is dirty
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Brakes squealing and car is dirty
 </code></pre></div>
 <p><strong>What happens:</strong></p>
 <div class="panzoom-box" data-key="alt" id="panzoom0" oncontextmenu="return false;">
@@ -2345,13 +2342,13 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </div>
 </div>
 <h4 id="scenario-3-maintenance-return">Scenario 3: Maintenance Return<a class="headerlink" href="#scenario-3-maintenance-return" title="Permanent link"></a></h4>
-<p>Now use the “Maintenance Return” tab and enter in the For F-150 field:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Fixed the brakes, car could use a wash now
+<p>Now use the “Maintenance Return” tab and enter in the Honda Civic feedback field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Fixed the brakes
 </code></pre></div>
 <p><strong>What happens:</strong></p>
 <ul>
 <li>FeedbackWorkflow: Analyzes maintenance feedback</li>
-<li>CarAssignmentWorkflow: Routes to CleaningAgent</li>
+<li>CarAssignmentWorkflow: Routes to CleaningAgent (because we previously noted the car was dirty)</li>
 <li>Result: Car goes from maintenance to cleaning</li>
 </ul>
 <h3 id="check-the-logs">Check the Logs<a class="headerlink" href="#check-the-logs" title="Permanent link"></a></h3>
@@ -2472,18 +2469,18 @@ steps in the source code of step-03 without making all the code changes yourself
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Linux / macOS</label><label for="__tabbed_2_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cp<span class="w"> </span>../step-03/src/main/resources/META-INF/resources/css/styles.css<span class="w"> </span>./src/main/resources/META-INF/resources/css/styles.css
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cp<span class="w"> </span>../step-03/src/main/resources/META-INF/resources/js/app.js<span class="w"> </span>./src/main/resources/META-INF/resources/js/app.js
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cp<span class="w"> </span>../step-03/src/main/resources/META-INF/resources/index.html<span class="w"> </span>./src/main/resources/META-INF/resources/index.html
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>cp<span class="w"> </span>../step-03/src/main/resources/import.sql<span class="w"> </span>./src/main/resources/import.sql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>../step-02
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cp<span class="w"> </span>../step-03/src/main/resources/META-INF/resources/css/styles.css<span class="w"> </span>./src/main/resources/META-INF/resources/css/styles.css
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cp<span class="w"> </span>../step-03/src/main/resources/META-INF/resources/js/app.js<span class="w"> </span>./src/main/resources/META-INF/resources/js/app.js
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>cp<span class="w"> </span>../step-03/src/main/resources/META-INF/resources/index.html<span class="w"> </span>./src/main/resources/META-INF/resources/index.html
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>cp<span class="w"> </span>../step-03/src/main/java/com/carmanagement/model/CarStatus.java<span class="w"> </span>./src/main/java/com/carmanagement/model/CarStatus.java
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>copy ..\step-03\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>copy ..\step-03\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>copy ..\step-03\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>copy ..\step-03\src\main\resources\import.sql .\src\main\resources\import.sql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cd ..\step-02
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>copy ..\step-03\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>copy ..\step-03\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>copy ..\step-03\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>copy ..\step-03\src\main\java\com\carmanagement\service\CarService.java .\src\main\java\com\carmanagement\service\CarService.java
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>copy ..\step-03\src\main\java\com\carmanagement\model\CarStatus.java .\src\main\java\com\carmanagement\model\CarStatus.java
 </code></pre></div>
@@ -2777,8 +2774,8 @@ service agent path based on the analysis results. Notice the same analysisResult
 <a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>
 <a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a><span class="hll"><span class="w">    </span><span class="nd">@ActivationCondition</span><span class="p">(</span><span class="n">CleaningAgent</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-</span><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">assignToCleaning</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">cleaningRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">isRequired</span><span class="p">(</span><span class="n">cleaningRequest</span><span class="p">);</span>
+</span><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">assignToCleaning</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">maintenanceRequest</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cleaningRequest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">isRequired</span><span class="p">(</span><span class="n">maintenanceRequest</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">isRequired</span><span class="p">(</span><span class="n">cleaningRequest</span><span class="p">);</span>
 <a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>
 <a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isRequired</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>

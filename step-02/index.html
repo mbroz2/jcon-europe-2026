@@ -1816,10 +1816,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
     Start[Start] --&gt; Check1{Condition 1?}
     Check1 --&gt;|Yes| A[Agent 1]
     Check1 --&gt;|No| Check2{Condition 2?}
-    A --&gt; End[Continue]
+    A --&gt; Check2
     Check2 --&gt;|Yes| B[Agent 2]
     Check2 --&gt;|No| End
-    B --&gt; End
+    B --&gt; End[Continue]
     style A fill:#FFD700
     style B fill:#FFD700</code></pre> 
     <div class="panzoom-info-box panzoom-info-box-bottom panzoom-hidden">
@@ -1827,7 +1827,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </div>
 </div>
 <p><strong>When to use:</strong> When different execution paths are needed based on runtime data (e.g. the output of a previous agent execution).</p>
-<p><strong>Example:</strong> If maintenance needed → send to maintenance, else if cleaning needed → send to cleaning</p>
+<p><strong>Example:</strong> If maintenance needed → send to maintenance, if maintenance not needed and cleaning needed → send to cleaning</p>
 <hr>
 <h3 id="loop-workflows-loopagent">Loop Workflows (<code>@LoopAgent</code>)<a class="headerlink" href="#loop-workflows-loopagent" title="Permanent link"></a></h3>
 <p>With Loop workflows, agents run <strong>repeatedly until a condition is met</strong>.</p>
@@ -1956,8 +1956,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>copy ..\step-02\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>copy ..\step-02\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>copy ..\step-02\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>copy ..\step-02\src\main\resources\import.sql .\src\main\resources\import.sql
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>copy ..\step-02\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>copy ..\step-02\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
 </code></pre></div>
 </div>
 </div>
