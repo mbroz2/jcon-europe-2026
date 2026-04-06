@@ -466,13 +466,14 @@ Consider remote tools when:
 - **Scalability**: Tools need independent scaling
 - **Legacy integration**: Connecting to existing services
 
-#### 6. Clean Up
+#### 5. Clean Up
 
 When you're done experimenting:
 
-1. Stop the Quarkus server (press `Ctrl+C` in the Quarkus terminal)
-2. Stop the Liberty server (press `Ctrl+C` in the Liberty terminal)
-3. Return to the original step-01 directory:
+1. Stop the Liberty server (press `Ctrl+C` in the Liberty terminal)
+2. Close the Liberty terminal
+3. Stop the Quarkus server (press `Ctrl+C` in the Quarkus terminal)
+4. Return to the original step-01 directory in the Quarkus terminal:
 
 === "Linux / macOS"
     ```bash
