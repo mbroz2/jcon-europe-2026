@@ -124,12 +124,11 @@ graph TB
     BEnd --> C[Step 2: CarAssignmentWorkflow<br/>Conditional - Level 2]
     C --> C1{Maintenance<br/>needed?}
     C1 -->|Yes| C2[MaintenanceAgent]
-    C1 -->|No| C3{Cleaning<br/>needed?}
+    C1 -->|No| C3{Maintenance not needed and Cleaning<br/>needed?}
     C3 -->|Yes| C4[CleaningAgent]
-    C3 -->|No| C5[Skip both]
-    C2 --> CEnd[Action complete]
+    C2 --> C3
+    C3 -->|No| CEnd[Action complete]
     C4 --> CEnd
-    C5 --> CEnd
     
     CEnd --> D[Step 3: CarConditionFeedbackAgent<br/>Single Agent - Level 1]
     D --> End([Updated Car Conditions])
@@ -152,8 +151,7 @@ graph TB
 
 2. **CarAssignmentWorkflow** (Conditional): Routes the car based on the analysis:
     - If maintenance needed, then send to maintenance team
-    - Else if cleaning needed, then send to cleaning
-    - Else: do nothing
+    - if maintenance not needed and cleaning needed, then send to cleaning
 
 3. **CarConditionFeedbackAgent** (Single): Updates the car's condition based on all feedback
 
@@ -191,11 +189,10 @@ The `CarAssignmentWorkflow` uses **activation conditions** to intelligently rout
 --8<-- "../../step-03/src/main/java/com/carmanagement/agentic/workflow/CarAssignmentWorkflow.java:conditional-agent"
 ```
 
-- If `assignToMaintenance()` returns `true` → MaintenanceAgent runs, CleaningAgent skipped
-- Else if `assignToCleaning()` returns `true` → CleaningAgent runs
-- Else → Both skipped
+- If `assignToMaintenance()` returns `true` → MaintenanceAgent runs
+- If `assignToCleaning()` returns `true` → CleaningAgent runs
 
-This implements **priority routing**: maintenance takes precedence over cleaning.
+The logic in `assignToCleaning()` will only let the CleaningAgent run if no maintenance is required. This implements **priority routing**: maintenance takes precedence over cleaning.
 
 ---
 
@@ -223,7 +220,7 @@ Try these scenarios to see how the nested workflows route cars:
 Enter the following text in the feedback field for the Honda Civic:
 
 ```text
-Engine making strange noise and car is dirty
+Brakes squealing and car is dirty
 ```
 
 **What happens:**
@@ -288,16 +285,16 @@ flowchart TD
 
 #### Scenario 3: Maintenance Return
 
-Now use the "Maintenance Return" tab and enter in the For F-150 field:
+Now use the "Maintenance Return" tab and enter in the Honda Civic feedback field:
 
 ```text
-Fixed the brakes, car could use a wash now
+Fixed the brakes
 ```
 
 **What happens:**
 
 - FeedbackWorkflow: Analyzes maintenance feedback
-- CarAssignmentWorkflow: Routes to CleaningAgent
+- CarAssignmentWorkflow: Routes to CleaningAgent (because we previously noted the car was dirty)
 - Result: Car goes from maintenance to cleaning
 
 ### Check the Logs
