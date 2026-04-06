@@ -288,7 +288,7 @@ Tools enable agents to call functions that can take action. These tools can be l
 
 The concept is similar to function calling in AI services: the LLM decides when to invoke a tool based on the task at hand, and the tool performs the actual action.
 
-```java hl_lines="4 21 40 47-48" title="CleaningTool.java"
+```java hl_lines="4 24 42 49-50" title="CleaningTool.java"
 --8<-- "../../step-01/src/main/java/com/carmanagement/agentic/tools/CleaningTool.java:CleaningTool"
 ```
 
@@ -329,9 +329,9 @@ The CleaningTool on the Liberty server uses Liberty-specific MCP annotations:
 
 **Key Points:**
 
+- The tool is a standard CDI bean (`@ApplicationScoped`)
 - Uses `@Tool` from `io.openliberty.mcp.annotations` (not LangChain4j's `@Tool`)
 - Each parameter annotated with `@ToolArg` to provide metadata to MCP clients
-- The tool is a standard CDI bean (`@ApplicationScoped`)
 
 #### 2. Liberty Server Configuration
 
@@ -385,17 +385,17 @@ If you have the step-01 Quarkus server running, stop it first (press `Ctrl+C` in
 
 #### 2. Start the Liberty MCP Server
 
-Switch to the step-01-mcp directory and start the Liberty server that hosts the remote CleaningTool:
+Open a **new terminal** and start the Liberty server that hosts the remote CleaningTool:
 
 === "Linux / macOS"
     ```bash
-    cd ../step-01-mcp/bonus-liberty-mcp
+    cd step-01-mcp/bonus-liberty-mcp
     mvn liberty:run
     ```
 
 === "Windows"
     ```cmd
-    cd ..\step-01-mcp\bonus-liberty-mcp
+    cd step-01-mcp\bonus-liberty-mcp
     mvn liberty:run
     ```
 
@@ -405,23 +405,23 @@ Wait for the Liberty server to start. You should see:
 [INFO] [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet.
 ```
 
-#### 4. Start the Quarkus Application
+#### 3. Start the Quarkus Application
 
-Open a **new terminal** and start the Quarkus application:
+In your original terminal, start the Quarkus application:
 
 === "Linux / macOS"
     ```bash
-    cd step-01-mcp
+    cd ../step-01-mcp
     ./mvnw quarkus:dev
     ```
 
 === "Windows"
     ```cmd
-    cd step-01-mcp
+    cd ..\step-01-mcp
     mvnw quarkus:dev
     ```
 
-#### 5. Test the Remote Tool
+#### 4. Test the Remote Tool
 
 Open your browser to [http://localhost:8080](http://localhost:8080){target="_blank"} and try the same test as before:
 
@@ -466,13 +466,14 @@ Consider remote tools when:
 - **Scalability**: Tools need independent scaling
 - **Legacy integration**: Connecting to existing services
 
-#### 6. Clean Up
+#### 5. Clean Up
 
 When you're done experimenting:
 
-1. Stop the Quarkus server (press `Ctrl+C` in the Quarkus terminal)
-2. Stop the Liberty server (press `Ctrl+C` in the Liberty terminal)
-3. Return to the original step-01 directory:
+1. Stop the Liberty server (press `Ctrl+C` in the Liberty terminal)
+2. Close the Liberty terminal
+3. Stop the Quarkus server (press `Ctrl+C` in the Quarkus terminal)
+4. Return to the original step-01 directory in the Quarkus terminal:
 
 === "Linux / macOS"
     ```bash
