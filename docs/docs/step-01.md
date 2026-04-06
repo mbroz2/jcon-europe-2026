@@ -385,17 +385,17 @@ If you have the step-01 Quarkus server running, stop it first (press `Ctrl+C` in
 
 #### 2. Start the Liberty MCP Server
 
-Switch to the step-01-mcp directory and start the Liberty server that hosts the remote CleaningTool:
+Open a **new terminal** and start the Liberty server that hosts the remote CleaningTool:
 
 === "Linux / macOS"
     ```bash
-    cd ../step-01-mcp/bonus-liberty-mcp
+    cd step-01-mcp/bonus-liberty-mcp
     mvn liberty:run
     ```
 
 === "Windows"
     ```cmd
-    cd ..\step-01-mcp\bonus-liberty-mcp
+    cd step-01-mcp\bonus-liberty-mcp
     mvn liberty:run
     ```
 
@@ -405,23 +405,23 @@ Wait for the Liberty server to start. You should see:
 [INFO] [AUDIT   ] CWWKF0011I: The defaultServer server is ready to run a smarter planet.
 ```
 
-#### 4. Start the Quarkus Application
+#### 3. Start the Quarkus Application
 
-Open a **new terminal** and start the Quarkus application:
+In your original terminal, start the Quarkus application:
 
 === "Linux / macOS"
     ```bash
-    cd step-01-mcp
+    cd ../step-01-mcp
     ./mvnw quarkus:dev
     ```
 
 === "Windows"
     ```cmd
-    cd step-01-mcp
+    cd ..\step-01-mcp
     mvnw quarkus:dev
     ```
 
-#### 5. Test the Remote Tool
+#### 4. Test the Remote Tool
 
 Open your browser to [http://localhost:8080](http://localhost:8080){target="_blank"} and try the same test as before:
 
