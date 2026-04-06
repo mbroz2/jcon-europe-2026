@@ -1948,8 +1948,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp<span class="w"> </span>../step-02/src/main/resources/META-INF/resources/css/styles.css<span class="w"> </span>./src/main/resources/META-INF/resources/css/styles.css
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cp<span class="w"> </span>../step-02/src/main/resources/META-INF/resources/js/app.js<span class="w"> </span>./src/main/resources/META-INF/resources/js/app.js
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>cp<span class="w"> </span>../step-02/src/main/resources/META-INF/resources/index.html<span class="w"> </span>./src/main/resources/META-INF/resources/index.html
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>cp<span class="w"> </span>../step-02/src/main/resources/import.sql<span class="w"> </span>./src/main/resources/import.sql
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>cp<span class="w"> </span>../step-02/src/main/java/com/carmanagement/model/CarInfo.java<span class="w"> </span>./src/main/java/com/carmanagement/model/CarInfo.java
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>cp<span class="w"> </span>../step-02/src/main/java/com/carmanagement/model/CarInfo.java<span class="w"> </span>./src/main/java/com/carmanagement/model/CarInfo.java
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2346,15 +2345,25 @@ It returns a <code>CarConditions</code> object containing results from both agen
 <hr>
 <h2 id="try-it-out">Try It Out<a class="headerlink" href="#try-it-out" title="Permanent link"></a></h2>
 <p>Start the application:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Linux / macOS</label><label for="__tabbed_4_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./mvnw<span class="w"> </span>quarkus:dev
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mvnw quarkus:dev
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>Open your browser to <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>.</p>
 <h3 id="notice-the-new-ui">Notice the New UI<a class="headerlink" href="#notice-the-new-ui" title="Permanent link"></a></h3>
 <p>The <strong>Fleet Status</strong> section now has a <strong>“Condition”</strong> column showing each car’s current state:</p>
 <p><img alt="Agentic UI with Condition Column" class="center" src="../images/agentic-UI-2.png"></p>
 <h3 id="test-the-workflow">Test the Workflow<a class="headerlink" href="#test-the-workflow" title="Permanent link"></a></h3>
 <p>In the <code>Returns &gt; Rental Return</code> section, enter feedback that indicates a problem with a car:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>there has clearly been a fire in the trunk of this car
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>there has clearly been a fire in the trunk of this car
 </code></pre></div>
 <p>Click <strong>Return</strong>.</p>
 <p><strong>What happens?</strong></p>
@@ -2365,13 +2374,13 @@ It returns a <code>CarConditions</code> object containing results from both agen
 <li>The <strong>Condition</strong> column in the Fleet Status updates to show the new condition</li>
 </ol>
 <h3 id="check-the-logs">Check the Logs<a class="headerlink" href="#check-the-logs" title="Permanent link"></a></h3>
-<p>You should see both agents executing in sequential:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>🚗 CleaningTool result: Cleaning requested for Toyota Camry (2021), Car #4:
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>- Interior cleaning
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>- Exterior wash
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Additional notes: Fire damage requires thorough cleaning
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>[CarConditionFeedbackAgent response]: Fire damage in trunk, requires inspection and repair
+<p>You should see the two agents executed sequentially:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>🚗 CleaningTool result: Cleaning requested for Toyota Camry (2021), Car #4:
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>- Interior cleaning
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>- Exterior wash
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Additional notes: Fire damage requires thorough cleaning
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>[CarConditionFeedbackAgent response]: Fire damage in trunk, requires inspection and repair
 </code></pre></div>
 <p>Notice how the workflow <strong>coordinated both agents</strong> automatically!</p>
 <hr>
@@ -2472,8 +2481,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </ol>
 <h3 id="3-try-different-feedback-combinations">3. Try Different Feedback Combinations<a class="headerlink" href="#3-try-different-feedback-combinations" title="Permanent link"></a></h3>
 <p>Test these scenarios:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Rental feedback: "Scratch on door"
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Cleaning feedback: "Scratch remains after cleaning"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Rental feedback: "Scratch on door"
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Cleaning feedback: "Scratch remains after cleaning"
 </code></pre></div>
 <p>How does the condition agent synthesize feedback from multiple sources?</p>
 <hr>
