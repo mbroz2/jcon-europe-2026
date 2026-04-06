@@ -503,7 +503,7 @@ Click **Return**.
 
 ### Check the Logs
 
-You should see both agents executing in sequential:
+You should see the two agents executing sequentially:
 
 ```
 🚗 CleaningTool result: Cleaning requested for Toyota Camry (2021), Car #4:
