@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -2055,23 +2055,23 @@ You will then be able to walk through this chapter and focus on the examples and
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Linux / macOS</label><label for="__tabbed_2_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cp<span class="w"> </span>../step-05/multi-agent-system/pom.xml<span class="w"> </span>./pom.xml
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarInfo.java<span class="w"> </span>./src/main/java/com/carmanagement/model/CarInfo.java
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarStatus.java<span class="w"> </span>./src/main/java/com/carmanagement/model/CarStatus.java
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/resources/META-INF/resources/css/styles.css<span class="w"> </span>./src/main/resources/META-INF/resources/css/styles.css
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/resources/META-INF/resources/js/app.js<span class="w"> </span>./src/main/resources/META-INF/resources/js/app.js
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/resources/META-INF/resources/index.html<span class="w"> </span>./src/main/resources/META-INF/resources/index.html
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/resources/import.sql<span class="w"> </span>./src/main/resources/import.sql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>../step-04
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cp<span class="w"> </span>../step-05/multi-agent-system/pom.xml<span class="w"> </span>./pom.xml
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarInfo.java<span class="w"> </span>./src/main/java/com/carmanagement/model/CarInfo.java
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarStatus.java<span class="w"> </span>./src/main/java/com/carmanagement/model/CarStatus.java
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/resources/META-INF/resources/css/styles.css<span class="w"> </span>./src/main/resources/META-INF/resources/css/styles.css
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/resources/META-INF/resources/js/app.js<span class="w"> </span>./src/main/resources/META-INF/resources/js/app.js
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>cp<span class="w"> </span>../step-05/multi-agent-system/src/main/resources/META-INF/resources/index.html<span class="w"> </span>./src/main/resources/META-INF/resources/index.html
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>copy ..\step-05\multi-agent-system\pom.xml .\pom.xml
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarStatus.java .\src\main\java\com\carmanagement\model\CarStatus.java
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>copy ..\step-05\multi-agent-system\src\main\resources\import.sql .\src\main\resources\import.sql
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cd ..\step-04
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>copy ..\step-05\multi-agent-system\pom.xml .\pom.xml
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarStatus.java .\src\main\java\com\carmanagement\model\CarStatus.java
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
 </code></pre></div>
 </div>
 </div>
