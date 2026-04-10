@@ -233,24 +233,24 @@ step-05/
     
     === "Linux / macOS"
         ```bash
+        cd ../step-04
         cp ../step-05/multi-agent-system/pom.xml ./pom.xml
         cp ../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarInfo.java ./src/main/java/com/carmanagement/model/CarInfo.java
         cp ../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarStatus.java ./src/main/java/com/carmanagement/model/CarStatus.java
         cp ../step-05/multi-agent-system/src/main/resources/META-INF/resources/css/styles.css ./src/main/resources/META-INF/resources/css/styles.css
         cp ../step-05/multi-agent-system/src/main/resources/META-INF/resources/js/app.js ./src/main/resources/META-INF/resources/js/app.js
         cp ../step-05/multi-agent-system/src/main/resources/META-INF/resources/index.html ./src/main/resources/META-INF/resources/index.html
-        cp ../step-05/multi-agent-system/src/main/resources/import.sql ./src/main/resources/import.sql
         ```
     
     === "Windows"
         ```cmd
+        cd ..\step-04
         copy ..\step-05\multi-agent-system\pom.xml .\pom.xml
         copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
         copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarStatus.java .\src\main\java\com\carmanagement\model\CarStatus.java
         copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
         copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
         copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
-        copy ..\step-05\multi-agent-system\src\main\resources\import.sql .\src\main\resources\import.sql
         ```
 
 ---
