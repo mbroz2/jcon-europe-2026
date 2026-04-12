@@ -25,6 +25,7 @@ public class CarManagementService {
      *
      * @param carNumber The car number
      * @param rentalFeedback Optional rental feedback
+     * @param cleaningFeedback Optional cleaning feedback
      * @return Result of the processing
      */
     public String processCarReturn(Integer carNumber, String rentalFeedback, String cleaningFeedback) {
