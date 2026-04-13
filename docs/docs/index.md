@@ -53,10 +53,6 @@ Final solution: `step-05`
 
 ---
 
-![LangChain4j Agentic AI Workshop Architecture](images/global-architecture.png)
-
----
-
 ## Let's Get Started
 
 First, check the [requirements](./requirements.md) page to prepare your environment.
