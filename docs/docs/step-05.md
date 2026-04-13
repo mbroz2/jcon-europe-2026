@@ -842,9 +842,11 @@ You learned how to:
 - **Step 4**: Sophisticated local orchestration with Supervisor Pattern
 - **Step 5**: Distributed architecture with A2A protocol
 
-But there's one more critical pattern to learn! In **Step 6**, you'll implement the **Human-in-the-Loop (HITL) pattern** — adding human oversight to autonomous systems for high-stakes decisions.
+Congratulations! You've completed the Langchain4j Agentic AI Workshop and learned how to build sophisticated multi-agent systems with distributed architecture!
 
-[Continue to Step 6 - Human-in-the-Loop Pattern](step-06.md)
+Ready to wrap up? Head to the conclusion to review everything you've learned and see how these patterns apply to real-world scenarios!
+
+[Continue to Conclusion - Mastering Agentic Systems](agentic-conclusion.md)
 
 ---
 
