@@ -842,7 +842,7 @@ You learned how to:
 - **Step 4**: Sophisticated local orchestration with Supervisor Pattern
 - **Step 5**: Distributed architecture with A2A protocol
 
-Congratulations! You've completed the Langchain4j Agentic AI Workshop and learned how to build sophisticated multi-agent systems with distributed architecture!
+Congratulations! You've completed the **Agentic AI LangChain4j Workshop** and learned how to build sophisticated multi-agent systems with distributed architecture!
 
 Ready to wrap up? Head to the conclusion to review everything you've learned and see how these patterns apply to real-world scenarios!
 

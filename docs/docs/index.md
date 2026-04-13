@@ -1,6 +1,6 @@
-# LangChain4j Agentic AI Workshop
+# Agentic AI LangChain4j Workshop
 
-Welcome to the LangChain4j Agentic AI Workshop!
+Welcome to the Agentic AI LangChain4j Workshop!
 This workshop will guide you through building **agentic systems** using Quarkus and LangChain4j.
 
 You will learn how to:
