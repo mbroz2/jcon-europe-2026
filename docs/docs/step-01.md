@@ -38,7 +38,7 @@ Before diving in, let's clarify some key differences:
 | **Purpose**     | Answer user questions                           | Perform autonomous tasks                                                                                                                                                                                                         |
 | **Interaction** | Reactive (responds to prompts)                  | Reactive and Proactive (takes actions)                                                                                                                                                                                           |
 | **Tool Usage**  | Can call tools when needed                      | Can call tools to accomplish goals                                                                                                                                                                                               |
-| **Workflows**   | Single-agent interactions                       | Multi-agent collaboration  ([workflow](https://docs.langchain4j.dev/tutorials/agents/#workflow-patterns){target="_blank"} or [supervisor-based](https://docs.langchain4j.dev/tutorials/agents/#pure-agentic-ai){target="_blank"} |
+| **Workflows**   | Single-agent interactions                       | Multi-agent collaboration  ([workflow](https://docs.langchain4j.dev/tutorials/agents/#workflow-patterns){target="_blank"} or [supervisor-based](https://docs.langchain4j.dev/tutorials/agents/#pure-agentic-ai){target="_blank"}) |
 | **Annotation**  | Methods use `@SystemMessage` and `@UserMessage` | One method per interface (using `@Agent`)                                                                                                                                                                                        |
 | **Use Cases**   | Chatbots, Q&A, content generation               | Automation, decision-making, orchestration                                                                                                                                                                                       |
 
@@ -48,11 +48,7 @@ In this workshop, you'll learn how to build sophisticated, intelligent, and auto
 
 ## Prerequisites
 
-Before starting, ensure you have:
-
-- JDK 21+ installed
-- OpenAI API key set as `OPENAI_API_KEY` environment variable
-- Basic familiarity with Java and REST APIs
+Before starting, ensure you have met the [workshop setup requirements](requirements.md){target="_blank"}.
 
 ---
 
@@ -205,7 +201,7 @@ The `CarManagementResource` provides REST APIs to handle car returns:
 
 The `CarManagementService` orchestrates the car return process:
 
-```java hl_lines="10 16-28" title="CarManagementService.java"
+```java hl_lines="1 18-30" title="CarManagementService.java"
 --8<-- "../../step-01/src/main/java/com/carmanagement/service/CarManagementService.java:processCarReturn"
 ```
 
@@ -473,18 +469,19 @@ When you're done experimenting:
 1. Stop the Liberty server (press `Ctrl+C` in the Liberty terminal)
 2. Close the Liberty terminal
 3. Stop the Quarkus server (press `Ctrl+C` in the Quarkus terminal)
-4. Return to the original step-01 directory in the Quarkus terminal:
+4. In the Quarkus terminal, return to `step-01` directory and start the app:
 
 === "Linux / macOS"
     ```bash
     cd ../step-01
+    ./mvnw quarkus:dev
     ```
 
 === "Windows"
     ```cmd
     cd ..\step-01
+    mvnw quarkus:dev
     ```
-
 
 ### Understanding Tool Execution Flow
 
