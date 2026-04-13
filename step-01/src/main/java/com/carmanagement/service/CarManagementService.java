@@ -14,13 +14,14 @@ import com.carmanagement.repository.CarInfoRepository;
 @ApplicationScoped
 public class CarManagementService {
 
-    @Inject
-    CleaningAgent cleaningAgent;
-    
+        
     @Inject
     CarInfoRepository repository;
 
     // --8<-- [start:processCarReturn]
+    @Inject
+    CleaningAgent cleaningAgent;
+
     /**
      * Process a car return from any operation.
      *
