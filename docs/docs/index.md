@@ -18,7 +18,7 @@ You will learn how to:
 
 Throughout the workshop, you will create an agentic system for a car rental company that autonomously processes returned vehicles.
 
-The workshop consists of 6 progressive steps:
+The workshop consists of 5 progressive steps:
 
 - **Step 1 – Implementing AI Agents:**
   Create your first autonomous agent that can make decisions and use tools.
@@ -35,12 +35,9 @@ The workshop consists of 6 progressive steps:
 - **Step 5 – Using Remote Agents (A2A):**
   Connect to remote agents using the Agent-to-Agent protocol.
 
-- **Step 6 – Human-in-the-Loop Pattern:**
-  Add human oversight for critical decisions in your agentic system.
-
 Each step builds on the previous one, with the results stored in separate directories (`step-XX`).
 
-Final solution: `step-06`
+Final solution: `step-05`
 
 ---
 
