@@ -50,7 +50,6 @@ The application runs on [http://localhost:8080](http://localhost:8080).
 - **Step 03** - Composing Multiple Agentic Workflows
 - **Step 04** - Supervisor Pattern for Dynamic Orchestration
 - **Step 05** - Using Remote Agents (A2A)
-- **Step 06** - Human-in-the-Loop Pattern
 
 ---
 
