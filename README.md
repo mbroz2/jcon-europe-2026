@@ -1,4 +1,4 @@
-# langchain4j-agentic-ai
+# Agentic AI LangChain4j Workshop
 
 ## Think AI is Only for Python? Think Again. A Hands-On Java AI Workshop That Will Change Your Mind!
 
