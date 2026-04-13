@@ -184,14 +184,10 @@ sequenceDiagram
 
 ## Prerequisites
 
-Before starting:
-
-- Completed [Step 01](step-01.md){target="_blank"} (or have the `step-01` code available)
-- Application from Step 01 is stopped (Ctrl+C)
 
 === "Option 1: Continue from Step 01"
 
-    If you want to continue building on your Step 01 code, you'll need to copy some updated UI files and the updated `CarInfo.java` from `step-02`:
+    If you want to continue building on top of Step 01 code, you'll need to copy some updated UI files and the updated `CarInfo.java` from `step-02`:
 
     === "Linux / macOS"
         ```bash
@@ -213,9 +209,9 @@ Before starting:
 
     These files add the "Condition" column to the UI and update the data model to track car conditions.
 
-=== "Option 2: Start Fresh from Step 02"
+=== "Option 2: Follow along using the completed solution"
 
-    Alternatively, navigate to the complete `step-02` directory:
+    If you prefer to follow along (without making any code changes), navigate to the completed `step-02` directory:
 
     ```bash
     cd step-02
@@ -643,6 +639,26 @@ How does the condition agent synthesize feedback from multiple sources?
 
 ??? warning "UI not showing Condition column"
     Make sure you copied the updated UI files from `step-02` (see "Option 1: Continue from Step 01" section above)
+
+---
+
+## Cleanup
+
+Before moving to the next step, let's clean up:
+
+1. **Stop the running server** by pressing `Ctrl+C` in the terminal where Quarkus is running
+
+2. **Return to the root project directory**:
+
+=== "Linux / macOS"
+    ```bash
+    cd ..
+    ```
+
+=== "Windows"
+    ```cmd
+    cd ..
+    ```
 
 ---
 

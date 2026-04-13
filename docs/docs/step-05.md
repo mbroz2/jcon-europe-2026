@@ -168,16 +168,6 @@ graph TD
 
 ---
 
-## Prerequisites
-
-Before starting:
-
-- **Completed [Step 04](step-04.md){target="_blank"}** - This step directly builds on Step 4's architecture
-- Application from Step 04 is stopped (Ctrl+C)
-- Ports 8080 and 8888 are available (you'll run two applications simultaneously)
-- Understanding of Step 4's Supervisor Pattern (we keep the same pattern, just make DispositionAgent remote)
-
----
 
 ## Understanding the Project Structure
 
@@ -212,6 +202,7 @@ step-05/
 - Demonstrates cross-application agent communication via A2A
 
 ---
+## Prerequisites
 
 !!! warning "Warning: this chapter involves many steps"
     In order to build out the solution, you will need to go through quite a few steps.
@@ -219,21 +210,13 @@ step-05/
     we recommend starting fresh from Step 05 with the changes already applied.
     You will then be able to walk through this chapter and focus on the examples and suggested experiments at the end of this chapter.
 
-=== "Option 2: Start Fresh from Step 05 [Recommended]"
-
-    Navigate to the complete `step-05/multi-agent-system` directory:
-    
-    ```bash
-    cd step-05/multi-agent-system
-    ```
-
 === "Option 1: Continue from Step 04"
 
-    If you want to continue building on your previous code, place yourself at the root of your project and copy the updated files:
+    If you want to continue building on top of Step-04 code, copy the updated files:
     
     === "Linux / macOS"
         ```bash
-        cd ../step-04
+        cd step-04
         cp ../step-05/multi-agent-system/pom.xml ./pom.xml
         cp ../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarInfo.java ./src/main/java/com/carmanagement/model/CarInfo.java
         cp ../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarStatus.java ./src/main/java/com/carmanagement/model/CarStatus.java
@@ -244,7 +227,7 @@ step-05/
     
     === "Windows"
         ```cmd
-        cd ..\step-04
+        cd step-04
         copy ..\step-05\multi-agent-system\pom.xml .\pom.xml
         copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
         copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarStatus.java .\src\main\java\com\carmanagement\model\CarStatus.java
@@ -253,6 +236,13 @@ step-05/
         copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
         ```
 
+=== "Option 2: Follow along using the completed solution [Recommended]"
+
+    If you prefer to follow along (without making any code changes), navigate to the completed `step-05/multi-agent-system` directory:
+    
+    ```bash
+    cd step-05/multi-agent-system
+    ```
 ---
 
 ## Part 1: Convert DispositionAgent to A2A Client
@@ -541,7 +531,7 @@ The disposition service is now running and ready to accept A2A requests!
 
 ### Terminal 2: Start the Main Application
 
-Open a **new terminal** and run:
+Open a **new terminal**, navigate to the root project directory, and run:
 
 ```bash
 cd step-05/multi-agent-system
@@ -845,6 +835,32 @@ You learned how to:
 Congratulations! You've completed the Langchain4j Agentic AI Workshop and learned how to build sophisticated multi-agent systems with distributed architecture!
 
 Ready to wrap up? Head to the conclusion to review everything you've learned and see how these patterns apply to real-world scenarios!
+
+---
+
+## Cleanup
+
+Before moving to the conclusion, let's clean up:
+
+1. **Stop both running servers**:
+   - In Terminal 1 (remote-a2a-agent): Press `Ctrl+C`
+   - In Terminal 2 (multi-agent-system): Press `Ctrl+C`
+
+2. **Return to the root project directory** (in both terminals):
+
+=== "Linux / macOS"
+    ```bash
+    cd ../..
+    ```
+
+=== "Windows"
+    ```cmd
+    cd ..\..
+    ```
+
+You should now be in the root project directory.
+
+---
 
 [Continue to Conclusion - Mastering Agentic Systems](agentic-conclusion.md)
 

@@ -628,6 +628,26 @@ Does the agent automatically learn to use it?
 
 ---
 
+## Cleanup
+
+Before moving to the next step, let's clean up:
+
+1. **Stop the running server** by pressing `Ctrl+C` in the terminal where Quarkus is running
+
+2. **Return to the root project directory**:
+
+=== "Linux / macOS"
+    ```bash
+    cd ..
+    ```
+
+=== "Windows"
+    ```cmd
+    cd ..
+    ```
+
+---
+
 ## What's Next?
 
 In this step, you built a **single autonomous agent** that makes decisions and uses tools.
