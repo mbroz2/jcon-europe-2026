@@ -1,6 +1,6 @@
 # Conclusion: Mastering Agentic Systems
 
-Congratulations! You've completed the **LangChain4j Agentic AI Workshop**.
+Congratulations! You've completed the **Agentic AI LangChain4j Workshop**.
 
 Over the past five steps, you've journeyed from simple AI agents to sophisticated distributed multi-agent systems.
 Let's reflect on what you've built and why these patterns matter.
