@@ -207,10 +207,17 @@ Now that you understand the architecture, let's see it in action!
 
 3. Navigate to the complete solution directory:
 
-```bash
-cd step-03
-./mvnw quarkus:dev
-```
+=== "Linux / macOS"
+    ```bash
+    cd step-03
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    cd \step-03
+    mvnw quarkus:dev
+    ```
 
 3. Open [http://localhost:8080](http://localhost:8080){target="_blank"}
 

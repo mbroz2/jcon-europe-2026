@@ -139,7 +139,7 @@ Let's build the new autonomous dispositioning system step by step.
 
 === "Option 1: Continue from Step 03"
 
-    If you want to continue building on on top of Step 03 code, copy the updated UI files from `step-04`:
+    If you want to continue building on top of Step 03 code, copy the updated UI files from `step-04`:
 
     === "Linux / macOS"
         ```bash
