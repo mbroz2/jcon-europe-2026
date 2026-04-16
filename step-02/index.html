@@ -942,6 +942,17 @@ You are not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1616,6 +1627,17 @@ You are not viewing the latest version.
 </li>
       
         <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#whats-next" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1902,15 +1924,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </div>
 <hr>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
-<p>Before starting:</p>
-<ul>
-<li>Completed <a href="../step-01/" target="_blank">Step 01</a> (or have the <code>step-01</code> code available)</li>
-<li>Application from Step 01 is stopped (Ctrl+C)</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Option 1: Continue from Step 01</label><label for="__tabbed_1_2">Option 2: Start Fresh from Step 02</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Option 1: Continue from Step 01</label><label for="__tabbed_1_2">Option 2: Follow along using the completed solution</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>If you want to continue building on your Step 01 code, you’ll need to copy some updated UI files and the updated <code>CarInfo.java</code> from <code>step-02</code>:</p>
+<p>If you want to continue building on top of Step 01 code, you’ll need to copy some updated UI files and the updated <code>CarInfo.java</code> from <code>step-02</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Linux / macOS</label><label for="__tabbed_2_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1934,7 +1951,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <p>These files add the “Condition” column to the UI and update the data model to track car conditions.</p>
 </div>
 <div class="tabbed-block">
-<p>Alternatively, navigate to the complete <code>step-02</code> directory:</p>
+<p>If you prefer to follow along (without making any code changes), navigate to the completed <code>step-02</code> directory:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>step-02
 </code></pre></div>
 </div>
@@ -2487,6 +2504,19 @@ This means these agents could run in <strong>parallel</strong> for better respon
 <summary>UI not showing Condition column</summary>
 <p>Make sure you copied the updated UI files from <code>step-02</code> (see “Option 1: Continue from Step 01” section above)</p>
 </details>
+<hr>
+<h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link"></a></h2>
+<p>Before moving to the next step, let’s clean up:</p>
+<ol>
+<li>
+<p><strong>Stop the running server</strong> by pressing <code>Ctrl+C</code> in the terminal where Quarkus is running</p>
+</li>
+<li>
+<p><strong>Return to the root project directory</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+</li>
+</ol>
 <hr>
 <h2 id="whats-next">What’s Next?<a class="headerlink" href="#whats-next" title="Permanent link"></a></h2>
 <p>You’ve successfully built your first multi-agent workflow!
