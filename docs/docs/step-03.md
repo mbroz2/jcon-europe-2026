@@ -237,7 +237,7 @@ Brakes squealing and car is dirty
 
 ```mermaid
 flowchart TD
-    Start([Input: Engine making strange noise<br/>and car is dirty])
+    Start([Input: Brakes squealing <br>and car is dirty])
     
     Start --> FW[FeedbackWorkflow<br/>Parallel Analysis]
     
@@ -418,8 +418,8 @@ Starting from your current code in `step-02`, you'll add:
 
 Before starting:
 
-- Completed [Step 02](step-02.md){target="_blank"} (or have the `step-02` code available)
-- Application from Step 02 is stopped (Ctrl+C)
+- You have stopped (Ctrl+C) any running Quarkus instances
+- You are in the root project directory (not a `step-XX` subdirectory)
 
 === "Option 1: Continue from Step 02"
 
@@ -446,7 +446,7 @@ Before starting:
 
 === "Option 2: Follow along using the completed solution [Recommended]"
 
-    If you prefer to follow along (without making any code changes), navigate to the completed `step-04` directory:
+    If you prefer to follow along (without making any code changes), navigate to the completed `step-03` directory:
 
     ```bash
     cd step-03
