@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#conclusion-mastering-agentic-systems" class="md-skip">
+        <a href="#mastering-agentic-systems" class="md-skip">
           Skip to content
         </a>
       
@@ -1402,7 +1402,7 @@ You are not viewing the latest version.
   
 
 
-<div><h1 id="conclusion-mastering-agentic-systems">Conclusion: Mastering Agentic Systems<a class="headerlink" href="#conclusion-mastering-agentic-systems" title="Permanent link"></a></h1>
+<div><h1 id="mastering-agentic-systems">Mastering Agentic Systems<a class="headerlink" href="#mastering-agentic-systems" title="Permanent link"></a></h1>
 <p>Congratulations! You’ve completed the <strong>Agentic AI LangChain4j Workshop</strong>.</p>
 <p>Over the past five steps, you’ve journeyed from simple AI agents to sophisticated distributed multi-agent systems.
 Let’s reflect on what you’ve built and why these patterns matter.</p>
@@ -1410,72 +1410,93 @@ Let’s reflect on what you’ve built and why these patterns matter.</p>
 <h2 id="your-journey-through-agentic-systems">Your Journey Through Agentic Systems<a class="headerlink" href="#your-journey-through-agentic-systems" title="Permanent link"></a></h2>
 <h3 id="step-01-introduction-to-ai-agents">Step 01: Introduction to AI Agents<a class="headerlink" href="#step-01-introduction-to-ai-agents" title="Permanent link"></a></h3>
 <p>You started by transforming a traditional AI service into an <strong>autonomous agent</strong> that could use tools.</p>
-<p><strong>What you built:</strong>
-- <code>CarWashAgent</code>: An agent that analyzes feedback and decides which car wash services to request
-- <code>CarWashTool</code>: A tool that the agent calls to execute car wash actions</p>
-<p><strong>Key concepts:</strong>
-- <strong>Agent autonomy</strong>: The LLM decides when and how to use tools based on context, but you decide whether you control the flow or let an AI manage it
-- <strong>Tool calling</strong>: Declarative <code>@Tool</code> annotations make methods available to agents
-- <strong>Separation of concerns</strong>: Agents focus on reasoning; tools handle actions</p>
+<p><strong>What you built:</strong></p>
+<ul>
+<li><code>CarWashAgent</code>: An agent that analyzes feedback and decides which car wash services to request</li>
+<li><code>CarWashTool</code>: A tool that the agent calls to execute car wash actions</li>
+</ul>
+<p><strong>Key concepts:</strong></p>
+<ul>
+<li><strong>Agent autonomy</strong>: The LLM decides when and how to use tools based on context, but you decide whether you control the flow or let an AI manage it</li>
+<li><strong>Tool calling</strong>: Declarative <code>@Tool</code> annotations make methods available to agents</li>
+<li><strong>MCP integration</strong>: Use Model Context Protocol (MCP) to expose tools from external servers (e.g., Liberty MCP Server)</li>
+<li><strong>Separation of concerns</strong>: Agents focus on reasoning; tools handle actions</li>
+</ul>
 <p><strong>Why it matters:</strong> This pattern is fundamental to building AI systems that can take action in the real world. 
 Instead of just answering questions, agents can interact with systems, databases, and APIs to accomplish tasks.</p>
 <hr>
 <h3 id="step-02-composing-agent-workflows">Step 02: Composing Agent Workflows<a class="headerlink" href="#step-02-composing-agent-workflows" title="Permanent link"></a></h3>
 <p>You learned how to orchestrate multiple agents working together through <strong>workflows</strong>.</p>
-<p><strong>What you built:</strong>
-- <code>CarConditionFeedbackAgent</code>: Analyzes feedback to determine car condition
-- <code>CarProcessingWorkflow</code>: A sequence workflow coordinating car wash and condition analysis
-- Understanding of <strong>AgenticScope’s state</strong>: The shared context enabling agent collaboration</p>
-<p><strong>Key concepts:</strong>
-- <strong>Workflow composition</strong>: Building complex systems from simple agent building blocks
-- <strong>Sequence workflows</strong>: Agents execute in order, each building on previous results
-- <strong>AgenticScope’s state</strong>: A shared key-value store for passing data between agents
-- <strong>@Output methods</strong>: Extract and combine results from multiple agents</p>
+<p><strong>What you built:</strong></p>
+<ul>
+<li><code>CarConditionFeedbackAgent</code>: Analyzes feedback to determine car condition</li>
+<li><code>CarProcessingWorkflow</code>: A sequence workflow coordinating car wash and condition analysis</li>
+<li>Understanding of <strong>AgenticScope’s state</strong>: The shared context enabling agent collaboration</li>
+</ul>
+<p><strong>Key concepts:</strong></p>
+<ul>
+<li><strong>Workflow composition</strong>: Building complex systems from simple agent building blocks</li>
+<li><strong>Sequence workflows</strong>: Agents execute in order, each building on previous results</li>
+<li><strong>AgenticScope’s state</strong>: A shared key-value store for passing data between agents</li>
+<li><strong>@Output methods</strong>: Extract and combine results from multiple agents</li>
+</ul>
 <p><strong>Why it matters:</strong> Real-world problems rarely fit into a single agent’s capabilities. 
 Workflows let you compose specialized agents, each excellent at one task, into systems that solve complex multi-step problems.</p>
 <hr>
 <h3 id="step-03-building-nested-workflows">Step 03: Building Nested Workflows<a class="headerlink" href="#step-03-building-nested-workflows" title="Permanent link"></a></h3>
 <p>You mastered the art of <strong>composing workflows within workflows</strong>, unlocking truly sophisticated agent architectures.</p>
-<p><strong>What you built:</strong>
-- <code>FeedbackWorkflow</code>: Parallel analysis by three agents running concurrently
-- <code>CarAssignmentWorkflow</code>: Conditional routing based on what actions are needed
-- <code>CarProcessingWorkflow</code>: Three-level nested workflow orchestrating everything
-- Agents for maintenance, disposition, and comprehensive feedback analysis</p>
-<p><strong>Key concepts:</strong>
-- <strong>Parallel workflows</strong>: Concurrent agent execution for improved response time
-- <strong>Conditional workflows</strong>: Dynamic routing based on runtime conditions
-- <strong>Activation conditions</strong>: Boolean logic controlling when agents execute
-- <strong>Nested composition</strong>: Workflows containing other workflows, up to any depth
-- <strong>Priority routing</strong>: Handling critical issues before routine tasks</p>
+<p><strong>What you built:</strong></p>
+<ul>
+<li><code>FeedbackWorkflow</code>: Parallel analysis by three agents running concurrently</li>
+<li><code>CarAssignmentWorkflow</code>: Conditional routing based on what actions are needed</li>
+<li><code>CarProcessingWorkflow</code>: Three-level nested workflow orchestrating everything</li>
+<li>Agents for maintenance, disposition, and comprehensive feedback analysis</li>
+</ul>
+<p><strong>Key concepts:</strong></p>
+<ul>
+<li><strong>Parallel workflows</strong>: Concurrent agent execution for improved response time</li>
+<li><strong>Conditional workflows</strong>: Dynamic routing based on runtime conditions</li>
+<li><strong>Activation conditions</strong>: Boolean logic controlling when agents execute</li>
+<li><strong>Nested composition</strong>: Workflows containing other workflows, up to any depth</li>
+<li><strong>Priority routing</strong>: Handling critical issues before routine tasks</li>
+</ul>
 <p><strong>Why it matters:</strong> Production AI systems need to handle complex, branching logic. Nested workflows with parallel and conditional execution give you the control to build efficient, sophisticated systems while maintaining clarity and type safety.</p>
 <hr>
 <h3 id="step-04-supervisor-pattern-for-dynamic-orchestration">Step 04: Supervisor Pattern for Dynamic Orchestration<a class="headerlink" href="#step-04-supervisor-pattern-for-dynamic-orchestration" title="Permanent link"></a></h3>
 <p>You learned how to build <strong>autonomous, context-aware orchestration</strong> using supervisor agents.</p>
-<p><strong>What you built:</strong>
-- <code>FleetSupervisorAgent</code>: AI-driven supervisor using <code>@SupervisorAgent</code> annotation
-- <code>PricingAgent</code>: Vehicle valuation specialist
-- Adaptive workflow that adjusts based on business conditions</p>
-<p><strong>Key concepts:</strong>
-- <strong>Supervisor pattern</strong>: AI agents that orchestrate other agents
-- <strong>Autonomous orchestration</strong>: Supervisor decides which agents to invoke
-- <strong>Context-aware routing</strong>: Decisions based on multiple factors (demand, condition, value)
-- <strong>Flexible business logic</strong>: Adjust behavior via prompts, not code changes</p>
+<p><strong>What you built:</strong></p>
+<ul>
+<li><code>FleetSupervisorAgent</code>: AI-driven supervisor using <code>@SupervisorAgent</code> annotation</li>
+<li><code>PricingAgent</code>: Vehicle valuation specialist</li>
+<li>Adaptive workflow that adjusts based on business conditions</li>
+</ul>
+<p><strong>Key concepts:</strong></p>
+<ul>
+<li><strong>Supervisor pattern</strong>: AI agents that orchestrate other agents</li>
+<li><strong>Autonomous orchestration</strong>: Supervisor decides which agents to invoke</li>
+<li><strong>Context-aware routing</strong>: Decisions based on multiple factors (demand, condition, value)</li>
+<li><strong>Flexible business logic</strong>: Adjust behavior via prompts, not code changes</li>
+</ul>
 <p><strong>Why it matters:</strong> Real-world systems need to adapt to changing conditions. Supervisor agents provide intelligent, context-aware orchestration that can handle complex scenarios without hardcoded logic. This makes systems more flexible and easier to maintain.</p>
 <hr>
 <h3 id="step-05-distributed-agents-with-a2a">Step 05: Distributed Agents with A2A<a class="headerlink" href="#step-05-distributed-agents-with-a2a" title="Permanent link"></a></h3>
 <p>You extended beyond single-application boundaries to build <strong>distributed multi-agent systems</strong> using the A2A protocol.</p>
-<p><strong>What you built:</strong>
-- <code>DispositionAgent</code> (client): Connects to remote agents via <code>@A2AClientAgent</code>
-- Remote A2A server: Complete disposition service running independently
-- <code>AgentCard</code>: Describes remote agent capabilities
-- <code>AgentExecutor</code>: Handles A2A protocol communication
-- Two Quarkus applications communicating across HTTP</p>
-<p><strong>Key concepts:</strong>
-- <strong>A2A protocol</strong>: Open standard for agent-to-agent communication
-- <strong>Distributed architecture</strong>: Agents running in separate systems
-- <strong>Tasks vs. Messages</strong>: Different interaction patterns for different needs
-- <strong>Agent discovery</strong>: AgentCard enables clients to find and understand remote agents
-- <strong>Protocol abstraction</strong>: Declarative annotations hide complex protocol details</p>
+<p><strong>What you built:</strong></p>
+<ul>
+<li><code>DispositionAgent</code> (client): Connects to remote agents via <code>@A2AClientAgent</code></li>
+<li>Remote A2A server: Complete disposition service running independently</li>
+<li><code>AgentCard</code>: Describes remote agent capabilities</li>
+<li><code>AgentExecutor</code>: Handles A2A protocol communication</li>
+<li>Two Quarkus applications communicating across HTTP</li>
+</ul>
+<p><strong>Key concepts:</strong></p>
+<ul>
+<li><strong>A2A protocol</strong>: Open standard for agent-to-agent communication</li>
+<li><strong>Distributed architecture</strong>: Agents running in separate systems</li>
+<li><strong>Tasks vs. Messages</strong>: Different interaction patterns for different needs</li>
+<li><strong>Agent discovery</strong>: AgentCard enables clients to find and understand remote agents</li>
+<li><strong>Protocol abstraction</strong>: Declarative annotations hide complex protocol details</li>
+</ul>
 <p><strong>Why it matters:</strong> Enterprise systems are inherently distributed. Different teams, departments, or organizations may develop specialized agents. A2A lets you integrate these agents seamlessly, creating ecosystems where agents from different sources collaborate to solve problems.</p>
 <hr>
 <h2 id="the-rationale-why-agentic-systems">The Rationale: Why Agentic Systems?<a class="headerlink" href="#the-rationale-why-agentic-systems" title="Permanent link"></a></h2>
@@ -1701,12 +1722,14 @@ The supervisor controls the flow of other agents, but the agents themselves rema
 <li><strong>From single applications to ecosystems</strong>: Agents collaborating across system boundaries</li>
 </ul>
 <p>The <code>quarkus-langchain4j-agentic</code> module gives you the tools to build these systems with the reliability, type safety, and developer experience you expect from Quarkus.</p>
-<p>You’ve mastered:
-- Agent autonomy and tool calling
-- Workflow composition (sequence, parallel, conditional)
-- AgenticScope’s state for agent collaboration
-- Nested workflow architectures
-- Distributed systems with A2A protocol</p>
+<p>You’ve mastered:</p>
+<ul>
+<li>Agent autonomy and tool calling</li>
+<li>Workflow composition (sequence, parallel, conditional)</li>
+<li>AgenticScope’s state for agent collaboration</li>
+<li>Nested workflow architectures</li>
+<li>Distributed systems with A2A protocol</li>
+</ul>
 <p>You’re now equipped to build production-ready agentic systems that solve real-world problems.</p>
 <p>In addition, Quarkus Langchain4J also provides seamless integration with the broader Quarkus ecosystem, allowing you to leverage a wide range of extensions and tools to enhance your AI applications further.
 It also adds security features, monitoring, and scalability options that are essential for enterprise-grade AI applications.</p>
