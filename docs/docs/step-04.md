@@ -136,6 +136,10 @@ Let's build the new autonomous dispositioning system step by step.
 
 ## Prerequisites
 
+Before starting:
+
+- You have stopped (Ctrl+C) any running Quarkus instances
+- You are in the root project directory (not a `step-XX` subdirectory)
 
 === "Option 1: Continue from Step 03"
 
@@ -256,7 +260,7 @@ Create `FleetSupervisorAgent.java`:
     type nul > src\main\java\com\carmanagement\agentic\agents\FleetSupervisorAgent.java
     ```
 
-```java title="FleetSupervisorAgent.java" hl_lines="12-14 35"
+```java title="FleetSupervisorAgent.java" hl_lines="12-13 35"
 --8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java"
 ```
 
@@ -369,7 +373,7 @@ The car was in a serious collision. Front end is completely destroyed and airbag
 
 ```mermaid
 flowchart TD
-    Start([Input: Car was in serious collision<br/>Front end destroyed, airbags deployed])
+    Start([Input: The car was in a serious collision. Front end is completely destroyed and airbags deployed.])
     
     Start --> FW[FeedbackWorkflow<br/>Parallel Analysis]
     
@@ -420,7 +424,7 @@ Our autonomous system can handle this scenario as well.
 
 ```mermaid
 flowchart TD
-    Start([Input: Car is totaled<br/>completely inoperable])
+    Start([Input: The car is totaled after a major accident, completely inoperable])
     
     Start --> FW[FeedbackWorkflow<br/>Parallel Analysis]
     
