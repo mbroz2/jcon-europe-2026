@@ -327,7 +327,17 @@ cd step-05/remote-a2a-agent
 
 The tool that executes disposition actions (scrap, sell, donate).
 
-In `src/main/java/com/demo`, create `DispositionTool.java`:
+Create `DispositionTool.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/demo/DispositionTool.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\demo\DispositionTool.java
+    ```
 
 ```java title="DispositionTool.java"
 --8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionTool.java"
@@ -343,7 +353,17 @@ In `src/main/java/com/demo`, create `DispositionTool.java`:
 
 The AI agent that actually makes disposition decisions.
 
-In `src/main/java/com/demo`, create `DispositionAgent.java`:
+Create `DispositionAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/demo/DispositionAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\demo\DispositionAgent.java
+    ```
 
 ```java title="DispositionAgent.java"
 --8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgent.java"
@@ -365,7 +385,17 @@ In `src/main/java/com/demo`, create `DispositionAgent.java`:
 
 The **AgentCard** describes the agent's capabilities, skills, and interface.
 
-In `src/main/java/com/demo`, create `DispositionAgentCard.java`:
+Create `DispositionAgentCard.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/demo/DispositionAgentCard.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\demo\DispositionAgentCard.java
+    ```
 
 ```java hl_lines="19-21" title="DispositionAgentCard.java"
 --8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgentCard.java"
@@ -428,7 +458,17 @@ Specifies that this agent communicates via JSON-RPC over HTTP.
 
 The **AgentExecutor** handles incoming A2A requests and orchestrates the AI agent.
 
-In `src/main/java/com/demo`, create `DispositionAgentExecutor.java`:
+Create `DispositionAgentExecutor.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/demo/DispositionAgentExecutor.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\demo\DispositionAgentExecutor.java
+    ```
 
 ```java title="DispositionAgentExecutor.java"
 --8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgentExecutor.java"

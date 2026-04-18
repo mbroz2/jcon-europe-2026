@@ -171,7 +171,17 @@ Let's build the new autonomous dispositioning system step by step.
 
 Create an agent that detects severe damage requiring disposition evaluation.
 
-In `src/main/java/com/carmanagement/agentic/agents`, create `DispositionFeedbackAgent.java`:
+Create `DispositionFeedbackAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/DispositionFeedbackAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\DispositionFeedbackAgent.java
+    ```
 
 ```java title="DispositionFeedbackAgent.java" hl_lines="15-19 22 25 42"
 --8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/DispositionFeedbackAgent.java"
@@ -189,7 +199,17 @@ We'll add some prompt engineering in the system message to 'train' the AI model 
 the value based on the brand, its state and its age.
 As a reminder, the agent will be invoked by the supervisor when pricing is needed.
 
-In `src/main/java/com/carmanagement/agentic/agents`, create `PricingAgent.java`:
+Create `PricingAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/PricingAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\PricingAgent.java
+    ```
 
 ```java title="PricingAgent.java" hl_lines="16 43-45 55"
 --8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/PricingAgent.java"
@@ -202,7 +222,17 @@ Management also feels comfortable letting an AI model decide whether to SCRAP, S
 Create an agent that makes disposition decisions based on the value outcome of the
 PricingAgent's value estimate as well as the car's age and condition.
 
-In `src/main/java/com/carmanagement/agentic/agents`, create `DispositionAgent.java`:
+Create `DispositionAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\DispositionAgent.java
+    ```
 
 ```java title="DispositionAgent.java" hl_lines="16 22 32 41 43"
 --8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java"
@@ -214,7 +244,17 @@ Now create the **supervisor agent** that orchestrates everything.
 The prompt about the workflow and agents available to it must be **as clear as possible**. The more precise you are,
 the better the supervisor will be at deciding which agents to invoke.
 
-In `src/main/java/com/carmanagement/agentic/agents`, create `FleetSupervisorAgent.java`:
+Create `FleetSupervisorAgent.java`:
+
+=== "Linux / macOS"
+    ```bash
+    touch src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java
+    ```
+
+=== "Windows"
+    ```cmd
+    type nul > src\main\java\com\carmanagement\agentic\agents\FleetSupervisorAgent.java
+    ```
 
 ```java title="FleetSupervisorAgent.java" hl_lines="12-14 35"
 --8<-- "../../step-04/src/main/java/com/carmanagement/agentic/agents/FleetSupervisorAgent.java"
