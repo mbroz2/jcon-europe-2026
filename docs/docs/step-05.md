@@ -204,6 +204,11 @@ step-05/
 ---
 ## Prerequisites
 
+Before starting:
+
+- You have stopped (Ctrl+C) any running Quarkus instances
+- You are in the root project directory (not a `step-XX` subdirectory)
+
 !!! warning "Warning: this chapter involves many steps"
     In order to build out the solution, you will need to go through quite a few steps.
     While it is entirely possible to make the code changes manually (or via copy/paste),
@@ -212,37 +217,64 @@ step-05/
 
 === "Option 1: Continue from Step 04"
 
-    If you want to continue building on top of Step-04 code, copy the updated files:
+    If you want to continue building on top of Step-04 code, you'll need to restructure the directory and copy updated files:
     
     === "Linux / macOS"
         ```bash
         cd step-04
-        cp ../step-05/multi-agent-system/pom.xml ./pom.xml
-        cp ../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarInfo.java ./src/main/java/com/carmanagement/model/CarInfo.java
-        cp ../step-05/multi-agent-system/src/main/java/com/carmanagement/model/CarStatus.java ./src/main/java/com/carmanagement/model/CarStatus.java
-        cp ../step-05/multi-agent-system/src/main/resources/META-INF/resources/css/styles.css ./src/main/resources/META-INF/resources/css/styles.css
-        cp ../step-05/multi-agent-system/src/main/resources/META-INF/resources/js/app.js ./src/main/resources/META-INF/resources/js/app.js
-        cp ../step-05/multi-agent-system/src/main/resources/META-INF/resources/index.html ./src/main/resources/META-INF/resources/index.html
+        mkdir -p multi-agent-system
+        mv mvnw mvnw.cmd pom.xml src multi-agent-system/
+        cp ../step-05/multi-agent-system/pom.xml ./multi-agent-system/pom.xml
+        mkdir -p remote-a2a-agent/src/main/java/com/demo
+        mkdir -p remote-a2a-agent/src/main/java/com/carmanagement/model
+        mkdir -p remote-a2a-agent/src/main/java/com/carmanagement/repository
+        mkdir -p remote-a2a-agent/src/main/resources
+        cp ../step-05/remote-a2a-agent/mvnw ./remote-a2a-agent/
+        cp ../step-05/remote-a2a-agent/mvnw.cmd ./remote-a2a-agent/
+        cp ../step-05/remote-a2a-agent/pom.xml ./remote-a2a-agent/
+        cp ../step-05/remote-a2a-agent/src/main/resources/application.properties ./remote-a2a-agent/src/main/resources/
+        cp ../step-05/remote-a2a-agent/src/main/java/com/carmanagement/model/CarInfo.java ./remote-a2a-agent/src/main/java/com/carmanagement/model/
+        cp ../step-05/remote-a2a-agent/src/main/java/com/carmanagement/model/CarStatus.java ./remote-a2a-agent/src/main/java/com/carmanagement/model/
+        cp ../step-05/remote-a2a-agent/src/main/java/com/carmanagement/repository/CarInfoRepository.java ./remote-a2a-agent/src/main/java/com/carmanagement/repository/
         ```
     
     === "Windows"
         ```cmd
         cd step-04
-        copy ..\step-05\multi-agent-system\pom.xml .\pom.xml
-        copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarInfo.java .\src\main\java\com\carmanagement\model\CarInfo.java
-        copy ..\step-05\multi-agent-system\src\main\java\com\carmanagement\model\CarStatus.java .\src\main\java\com\carmanagement\model\CarStatus.java
-        copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\css\styles.css .\src\main\resources\META-INF\resources\css\styles.css
-        copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\js\app.js .\src\main\resources\META-INF\resources\js\app.js
-        copy ..\step-05\multi-agent-system\src\main\resources\META-INF\resources\index.html .\src\main\resources\META-INF\resources\index.html
+        mkdir multi-agent-system
+        move mvnw multi-agent-system\
+        move mvnw.cmd multi-agent-system\
+        move pom.xml multi-agent-system\
+        move src multi-agent-system\
+        copy ..\step-05\multi-agent-system\pom.xml .\multi-agent-system\pom.xml
+        mkdir remote-a2a-agent\src\main\java\com\demo
+        mkdir remote-a2a-agent\src\main\java\com\carmanagement\model
+        mkdir remote-a2a-agent\src\main\java\com\carmanagement\repository
+        mkdir remote-a2a-agent\src\main\resources
+        copy ..\step-05\remote-a2a-agent\mvnw .\remote-a2a-agent\
+        copy ..\step-05\remote-a2a-agent\mvnw.cmd .\remote-a2a-agent\
+        copy ..\step-05\remote-a2a-agent\pom.xml .\remote-a2a-agent\
+        copy ..\step-05\remote-a2a-agent\src\main\resources\application.properties .\remote-a2a-agent\src\main\resources\
+        copy ..\step-05\remote-a2a-agent\src\main\java\com\carmanagement\model\CarInfo.java .\remote-a2a-agent\src\main\java\com\carmanagement\model\
+        copy ..\step-05\remote-a2a-agent\src\main\java\com\carmanagement\model\CarStatus.java .\remote-a2a-agent\src\main\java\com\carmanagement\model\
+        copy ..\step-05\remote-a2a-agent\src\main\java\com\carmanagement\repository\CarInfoRepository.java .\remote-a2a-agent\src\main\java\com\carmanagement\repository\
         ```
+    
+    **Note:** The `remote-a2a-agent` directory now contains the necessary infrastructure (pom.xml, mvnw, application.properties, and shared models). The `com/demo` directory is empty and ready for you to create the A2A agent files in Part 2. You'll update `DispositionAgent.java` in the `multi-agent-system` in Part 1 below.
 
 === "Option 2: Follow along using the completed solution [Recommended]"
 
-    If you prefer to follow along (without making any code changes), navigate to the completed `step-05/multi-agent-system` directory:
+    If you prefer to follow along (without making any code changes), navigate to the completed `step-05/remote-a2a-agent` directory:
     
-    ```bash
-    cd step-05/multi-agent-system
-    ```
+    === "Linux / macOS"
+        ```bash
+        cd step-05/remote-a2a-agent
+        ```
+    
+    === "Windows"
+        ```cmd
+        cd step-05\remote-a2a-agent
+        ```
 ---
 
 ## Part 1: Convert DispositionAgent to A2A Client
@@ -263,9 +295,9 @@ The only change needed in the main application is converting the `DispositionAge
 - Uses `@A2AClientAgent` to connect to remote service
 - Delegates all decision-making to the remote service
 
-In `src/main/java/com/carmanagement/agentic/agents`, update `DispositionAgent.java`:
+Update `multi-agent-system/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java`:
 
-```java hl_lines="13" title="DispositionAgent.java"
+```java hl_lines="10" title="DispositionAgent.java"
 --8<-- "../../step-05/multi-agent-system/src/main/java/com/carmanagement/agentic/agents/DispositionAgent.java"
 ```
 
@@ -319,9 +351,16 @@ Now let's build the remote disposition service that will handle A2A requests fro
 
 Navigate to the remote-a2a-agent directory:
 
-```bash
-cd step-05/remote-a2a-agent
-```
+=== "Linux / macOS"
+    ```bash
+    cd remote-a2a-agent
+    ```
+
+=== "Windows"
+    ```cmd
+    cd remote-a2a-agent
+    ```
+
 
 ### Step 2: Create the DispositionTool
 
@@ -339,7 +378,7 @@ Create `DispositionTool.java`:
     type nul > src\main\java\com\demo\DispositionTool.java
     ```
 
-```java title="DispositionTool.java"
+```java hl_lines="45-46" title="DispositionTool.java"
 --8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionTool.java"
 ```
 
@@ -365,7 +404,7 @@ Create `DispositionAgent.java`:
     type nul > src\main\java\com\demo\DispositionAgent.java
     ```
 
-```java title="DispositionAgent.java"
+```java hl_lines="13 46 48 50-56" title="DispositionAgent.java"
 --8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgent.java"
 ```
 
@@ -397,7 +436,7 @@ Create `DispositionAgentCard.java`:
     type nul > src\main\java\com\demo\DispositionAgentCard.java
     ```
 
-```java hl_lines="19-21" title="DispositionAgentCard.java"
+```java hl_lines="18-20" title="DispositionAgentCard.java"
 --8<-- "../../step-05/remote-a2a-agent/src/main/java/com/demo/DispositionAgentCard.java"
 ```
 
@@ -557,10 +596,16 @@ You'll need to run **two applications simultaneously**.
 
 ### Terminal 1: Start the Remote A2A Server
 
-```bash
-cd step-05/remote-a2a-agent
-./mvnw quarkus:dev
-```
+From the `remote-a2a-agent` directory and run:
+=== "Linux / macOS"
+    ```bash
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    mvnw quarkus:dev
+    ```
 
 Wait for:
 ```
@@ -571,12 +616,17 @@ The disposition service is now running and ready to accept A2A requests!
 
 ### Terminal 2: Start the Main Application
 
-Open a **new terminal**, navigate to the root project directory, and run:
+Open a **new terminal**, navigate to the `multi-agent-system` directory, and run:
 
-```bash
-cd step-05/multi-agent-system
-./mvnw quarkus:dev
-```
+=== "Linux / macOS"
+    ```bash
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    mvnw quarkus:dev
+    ```
 
 Wait for:
 ```
@@ -883,14 +933,8 @@ Ready to wrap up? Head to the conclusion to review everything you've learned and
 Before moving to the conclusion, let's clean up:
 
 1. **Stop both running servers**:
-   - In Terminal 1 (remote-a2a-agent): Press `Ctrl+C`
-   - In Terminal 2 (multi-agent-system): Press `Ctrl+C`
-
-2. **Return to the root project directory** (in both terminals):
-
-    ```bash
-    cd ..
-    ```
+    - In Terminal 1 (remote-a2a-agent): Press `Ctrl+C`
+    - In Terminal 2 (multi-agent-system): Press `Ctrl+C`
     
 ---
 
