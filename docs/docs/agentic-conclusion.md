@@ -1,4 +1,4 @@
-# Conclusion: Mastering Agentic Systems
+# Mastering Agentic Systems
 
 Congratulations! You've completed the **LangChain4j Agentic AI Workshop**.
 
@@ -14,12 +14,15 @@ Let's reflect on what you've built and why these patterns matter.
 You started by transforming a traditional AI service into an **autonomous agent** that could use tools.
 
 **What you built:**
+
 - `CarWashAgent`: An agent that analyzes feedback and decides which car wash services to request
 - `CarWashTool`: A tool that the agent calls to execute car wash actions
 
 **Key concepts:**
+
 - **Agent autonomy**: The LLM decides when and how to use tools based on context, but you decide whether you control the flow or let an AI manage it
 - **Tool calling**: Declarative `@Tool` annotations make methods available to agents
+- **MCP integration**: Use Model Context Protocol (MCP) to expose tools from external servers (e.g., Liberty MCP Server)
 - **Separation of concerns**: Agents focus on reasoning; tools handle actions
 
 **Why it matters:** This pattern is fundamental to building AI systems that can take action in the real world. 
@@ -32,11 +35,13 @@ Instead of just answering questions, agents can interact with systems, databases
 You learned how to orchestrate multiple agents working together through **workflows**.
 
 **What you built:**
+
 - `CarConditionFeedbackAgent`: Analyzes feedback to determine car condition
 - `CarProcessingWorkflow`: A sequence workflow coordinating car wash and condition analysis
 - Understanding of **AgenticScope's state**: The shared context enabling agent collaboration
 
 **Key concepts:**
+
 - **Workflow composition**: Building complex systems from simple agent building blocks
 - **Sequence workflows**: Agents execute in order, each building on previous results
 - **AgenticScope's state**: A shared key-value store for passing data between agents
@@ -52,12 +57,14 @@ Workflows let you compose specialized agents, each excellent at one task, into s
 You mastered the art of **composing workflows within workflows**, unlocking truly sophisticated agent architectures.
 
 **What you built:**
+
 - `FeedbackWorkflow`: Parallel analysis by three agents running concurrently
 - `CarAssignmentWorkflow`: Conditional routing based on what actions are needed
 - `CarProcessingWorkflow`: Three-level nested workflow orchestrating everything
 - Agents for maintenance, disposition, and comprehensive feedback analysis
 
 **Key concepts:**
+
 - **Parallel workflows**: Concurrent agent execution for improved response time
 - **Conditional workflows**: Dynamic routing based on runtime conditions
 - **Activation conditions**: Boolean logic controlling when agents execute
@@ -73,11 +80,13 @@ You mastered the art of **composing workflows within workflows**, unlocking trul
 You learned how to build **autonomous, context-aware orchestration** using supervisor agents.
 
 **What you built:**
+
 - `FleetSupervisorAgent`: AI-driven supervisor using `@SupervisorAgent` annotation
 - `PricingAgent`: Vehicle valuation specialist
 - Adaptive workflow that adjusts based on business conditions
 
 **Key concepts:**
+
 - **Supervisor pattern**: AI agents that orchestrate other agents
 - **Autonomous orchestration**: Supervisor decides which agents to invoke
 - **Context-aware routing**: Decisions based on multiple factors (demand, condition, value)
@@ -92,6 +101,7 @@ You learned how to build **autonomous, context-aware orchestration** using super
 You extended beyond single-application boundaries to build **distributed multi-agent systems** using the A2A protocol.
 
 **What you built:**
+
 - `DispositionAgent` (client): Connects to remote agents via `@A2AClientAgent`
 - Remote A2A server: Complete disposition service running independently
 - `AgentCard`: Describes remote agent capabilities
@@ -99,6 +109,7 @@ You extended beyond single-application boundaries to build **distributed multi-a
 - Two Quarkus applications communicating across HTTP
 
 **Key concepts:**
+
 - **A2A protocol**: Open standard for agent-to-agent communication
 - **Distributed architecture**: Agents running in separate systems
 - **Tasks vs. Messages**: Different interaction patterns for different needs
@@ -317,31 +328,37 @@ Incident Detection →
 ## Best Practices You've Learned
 
 ### 1. Design for Clarity
+
 - Make workflows explicit and visible
 - Use descriptive agent and output names
 - Document activation conditions
 
 ### 2. Embrace Specialization
+
 - Each agent should have a focused purpose
 - Avoid "god agents" that try to do everything
 - Compose specialized agents into powerful workflows
 
 ### 3. Control Autonomy Carefully
+
 - Use workflows to define structure
 - Let agents be autonomous within their domain
 - Don't over-constrain with too many conditions
 
 ### 4. Think in Layers
+
 - Simple agents at the bottom
 - Workflows for coordination
 - Nested workflows for complex orchestration
 
 ### 5. Plan for Distribution
+
 - Design agents with clear interfaces
 - Use descriptive outputs that other agents can understand
 - Consider which agents might benefit from being remote
 
 ### 6. Test at Every Level
+
 - Test individual agents in isolation
 - Test workflows with mock agents
 - Test integration points carefully
@@ -359,6 +376,7 @@ Agentic systems represent a fundamental shift in how we build AI-powered applica
 The `quarkus-langchain4j-agentic` module gives you the tools to build these systems with the reliability, type safety, and developer experience you expect from Quarkus.
 
 You've mastered:
+
 - Agent autonomy and tool calling
 - Workflow composition (sequence, parallel, conditional)
 - AgenticScope's state for agent collaboration
