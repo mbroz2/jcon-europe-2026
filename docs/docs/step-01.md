@@ -150,16 +150,13 @@ If you open the `pom.xml` file from the project, you will see this dependency:
 
 ### Key Concepts
 
-Agents in Quarkus LangChain4j:
+Agents in LangChain4j:
 
 - Declared as interfaces (implementation generated automatically)
 - Use `@SystemMessage` to define the agent's role and behavior
 - Use `@UserMessage` to provide request-specific context
 - Can be assigned **tools** to perform actions
 - Support both programmatic and declarative (annotation-based) definitions, though in Quarkus, we recommend the declarative approach
-
-### Key Differences
-
 - **Only one method** per interface can be annotated with `@Agent` - this is the agent entry point
 - Designed to be composed with **workflows** or be invoked by a supervisor — agents can be composed together (more on this in [Step 02](step-02.md){target="_blank"})
 - Focus on **autonomous actions** rather than conversational responses
@@ -299,7 +296,7 @@ The concept is similar to function calling in AI services: the LLM decides when 
 
 ## Bonus Component: Liberty MCP CleaningTool
 
-In the main step-01 implementation, the `CleaningTool` is a local Quarkus/LangChain4j tool that runs within the same application. However, tools can also be **remote** services accessed via protocols like **MCP (Model Context Protocol)**.
+In the main step-01 implementation, the `CleaningTool` is a local LangChain4j tool that runs within the same application on Quarkus. However, tools can also be **remote** services accessed via protocols like **MCP (Model Context Protocol)**.
 
 The **step-01-mcp** variant demonstrates using a remote CleaningTool hosted on a Liberty MCP server. This showcases how agents can seamlessly interact with tools running in different processes or even on different machines.
 
