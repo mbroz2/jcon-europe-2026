@@ -675,9 +675,8 @@ Click **Return**.
 ### Check the Logs
 
 **Terminal 1 (Remote A2A Server):**
-```
-⛍ DispositionTool result: Ford F-150 (2021), Car #11: Scrap the car
-```
+
+The logs will show that the remote agent has made the decision to scrap the car.
 
 **Terminal 2 (Main Application):**
 ```
