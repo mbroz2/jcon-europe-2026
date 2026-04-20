@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -2701,16 +2701,15 @@ Clients can query this endpoint to discover the agent’s capabilities.</p>
 </li>
 </ol>
 <h3 id="check-the-logs">Check the Logs<a class="headerlink" href="#check-the-logs" title="Permanent link"></a></h3>
-<p><strong>Terminal 1 (Remote A2A Server):</strong>
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>⛍ DispositionTool result: Ford F-150 (2021), Car #11: Scrap the car
-</code></pre></div>
+<p><strong>Terminal 1 (Remote A2A Server):</strong></p>
+<p>The logs will show that the remote agent has made the decision to scrap the car.</p>
 <p><strong>Terminal 2 (Main Application):</strong>
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>[DispositionFeedbackAgent] DISPOSITION_REQUIRED - Severe structural damage, uneconomical to repair
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>[FleetSupervisorAgent] Invoking PricingAgent for value estimation
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>[PricingAgent] Estimated Value: $12,500
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>[FleetSupervisorAgent] Invoking DispositionAgent
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>[DispositionAgent @A2AClientAgent] Sending task to http://localhost:8888
-<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>[DispositionAgent @A2AClientAgent] Received result: Car should be scrapped...
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>[DispositionFeedbackAgent] DISPOSITION_REQUIRED - Severe structural damage, uneconomical to repair
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>[FleetSupervisorAgent] Invoking PricingAgent for value estimation
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>[PricingAgent] Estimated Value: $12,500
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>[FleetSupervisorAgent] Invoking DispositionAgent
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>[DispositionAgent @A2AClientAgent] Sending task to http://localhost:8888
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>[DispositionAgent @A2AClientAgent] Received result: Car should be scrapped...
 </code></pre></div>
 <p>Notice the <strong>cross-application communication</strong> via A2A!</p>
 <hr>
@@ -2797,8 +2796,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <h2 id="understanding-the-a2a-implementation">Understanding the A2A Implementation<a class="headerlink" href="#understanding-the-a2a-implementation" title="Permanent link"></a></h2>
 <h3 id="client-side-a2aclientagent">Client Side (<code>@A2AClientAgent</code>)<a class="headerlink" href="#client-side-a2aclientagent" title="Permanent link"></a></h3>
 <p>The client agent is remarkably simple:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nd">@A2AClientAgent</span><span class="p">(</span><span class="n">a2aServerUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"http://localhost:8888"</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="n">String</span><span class="w"> </span><span class="nf">processDisposition</span><span class="p">(...)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nd">@A2AClientAgent</span><span class="p">(</span><span class="n">a2aServerUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"http://localhost:8888"</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="n">String</span><span class="w"> </span><span class="nf">processDisposition</span><span class="p">(...)</span>
 </code></pre></div>
 <p>Quarkus LangChain4j handles:</p>
 <ul>
@@ -2863,19 +2862,19 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <h2 id="experiment-further">Experiment Further<a class="headerlink" href="#experiment-further" title="Permanent link"></a></h2>
 <h3 id="1-add-agent-discovery">1. Add Agent Discovery<a class="headerlink" href="#1-add-agent-discovery" title="Permanent link"></a></h3>
 <p>The AgentCard is published at <code>http://localhost:8888/card</code>. Try:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>curl<span class="w"> </span>http://localhost:8888/card<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>curl<span class="w"> </span>http://localhost:8888/card<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
 </code></pre></div>
 <p>You’ll see the full agent description including skills, capabilities, and transport protocols.</p>
 <h3 id="2-test-different-disposition-scenarios">2. Test Different Disposition Scenarios<a class="headerlink" href="#2-test-different-disposition-scenarios" title="Permanent link"></a></h3>
 <p>Try these feedback examples:</p>
 <p><strong>Scenario 1: Sell the car</strong>
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>Minor engine issues, good body condition, low mileage. Repair cost: $800.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>Minor engine issues, good body condition, low mileage. Repair cost: $800.
 </code></pre></div>
 <p><strong>Scenario 2: Donate the car</strong>
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>Old car, high mileage, runs but needs work. Market value low.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>Old car, high mileage, runs but needs work. Market value low.
 </code></pre></div>
 <p><strong>Scenario 3: Scrap the car</strong>
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>Total loss from flood damage, electrical system destroyed.
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>Total loss from flood damage, electrical system destroyed.
 </code></pre></div>
 <p>Observe how the remote agent makes different decisions!</p>
 <h3 id="3-create-your-own-a2a-agent">3. Create Your Own A2A Agent<a class="headerlink" href="#3-create-your-own-a2a-agent" title="Permanent link"></a></h3>
@@ -2888,8 +2887,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <p>Try creating a simple A2A server for one of these!</p>
 <h3 id="4-monitor-a2a-communication">4. Monitor A2A Communication<a class="headerlink" href="#4-monitor-a2a-communication" title="Permanent link"></a></h3>
 <p>Add logging to see the JSON-RPC messages:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="c1"># In application.properties</span>
-<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="na">quarkus.log.category."io.a2a".level</span><span class="o">=</span><span class="s">DEBUG</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># In application.properties</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="na">quarkus.log.category."io.a2a".level</span><span class="o">=</span><span class="s">DEBUG</span>
 </code></pre></div>
 <p>This shows the raw A2A protocol messages.</p>
 <hr>
@@ -2897,10 +2896,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <details class="warning">
 <summary>Connection refused to localhost:8888</summary>
 <p>Make sure the remote A2A server is running in Terminal 1. Check for:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Listening on: http://localhost:8888
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>Listening on: http://localhost:8888
 </code></pre></div>
 <p>If you see “Port already in use”, another application is using port 8888. You can change it in <code>remote-a2a-agent/src/main/resources/application.properties</code>:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="na">quarkus.http.port</span><span class="o">=</span><span class="s">8889</span>
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="na">quarkus.http.port</span><span class="o">=</span><span class="s">8889</span>
 </code></pre></div>
 <p>Then update the client’s <code>a2aServerUrl</code> accordingly.</p>
 </details>
