@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -576,17 +576,6 @@ You are not viewing the latest version.
     <span class="md-ellipsis">
       
         Key Concepts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-differences" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Differences
       
     </span>
   </a>
@@ -1407,17 +1396,6 @@ You are not viewing the latest version.
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#key-differences" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Differences
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2033,16 +2011,13 @@ If you open the <code>pom.xml</code> file from the project, you will see this de
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
 <h3 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link"></a></h3>
-<p>Agents in Quarkus LangChain4j:</p>
+<p>Agents in LangChain4j:</p>
 <ul>
 <li>Declared as interfaces (implementation generated automatically)</li>
 <li>Use <code>@SystemMessage</code> to define the agent’s role and behavior</li>
 <li>Use <code>@UserMessage</code> to provide request-specific context</li>
 <li>Can be assigned <strong>tools</strong> to perform actions</li>
 <li>Support both programmatic and declarative (annotation-based) definitions, though in Quarkus, we recommend the declarative approach</li>
-</ul>
-<h3 id="key-differences">Key Differences<a class="headerlink" href="#key-differences" title="Permanent link"></a></h3>
-<ul>
 <li><strong>Only one method</strong> per interface can be annotated with <code>@Agent</code> - this is the agent entry point</li>
 <li>Designed to be composed with <strong>workflows</strong> or be invoked by a supervisor — agents can be composed together (more on this in <a href="../step-02/" target="_blank">Step 02</a>)</li>
 <li>Focus on <strong>autonomous actions</strong> rather than conversational responses</li>
@@ -2326,7 +2301,7 @@ If you open the <code>pom.xml</code> file from the project, you will see this de
 </ul>
 <hr>
 <h2 id="bonus-component-liberty-mcp-cleaningtool">Bonus Component: Liberty MCP CleaningTool<a class="headerlink" href="#bonus-component-liberty-mcp-cleaningtool" title="Permanent link"></a></h2>
-<p>In the main step-01 implementation, the <code>CleaningTool</code> is a local Quarkus/LangChain4j tool that runs within the same application. However, tools can also be <strong>remote</strong> services accessed via protocols like <strong>MCP (Model Context Protocol)</strong>.</p>
+<p>In the main step-01 implementation, the <code>CleaningTool</code> is a local LangChain4j tool that runs within the same application on Quarkus. However, tools can also be <strong>remote</strong> services accessed via protocols like <strong>MCP (Model Context Protocol)</strong>.</p>
 <p>The <strong>step-01-mcp</strong> variant demonstrates using a remote CleaningTool hosted on a Liberty MCP server. This showcases how agents can seamlessly interact with tools running in different processes or even on different machines.</p>
 <h3 id="what-is-mcp">What is MCP?<a class="headerlink" href="#what-is-mcp" title="Permanent link"></a></h3>
 <p><strong>Model Context Protocol (MCP)</strong> is an open protocol that standardizes how AI applications connect to external data sources and tools. It enables:</p>

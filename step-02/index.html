@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -2220,9 +2220,9 @@ The next agent in the workflow can access this value as an input parameter using
 <a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">rentalFeedback</span><span class="p">,</span>
 <a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">cleaningFeedback</span><span class="p">);</span>
 <a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>
-<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">    </span><span class="nd">@Output</span>
-<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">CarConditions</span><span class="w"> </span><span class="nf">output</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">carCondition</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cleaningAgentResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">cleaningRequired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">cleaningAgentResult</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="s">"NOT_REQUIRED"</span><span class="p">);</span>
+<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="hll"><span class="w">    </span><span class="nd">@Output</span>
+</span><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="hll"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">CarConditions</span><span class="w"> </span><span class="nf">output</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">carCondition</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">cleaningAgentResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">cleaningRequired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">cleaningAgentResult</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="s">"NOT_REQUIRED"</span><span class="p">);</span>
 <a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CarConditions</span><span class="p">(</span><span class="n">carCondition</span><span class="p">,</span><span class="w"> </span><span class="n">cleaningRequired</span><span class="p">);</span>
 <a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="p">}</span>
