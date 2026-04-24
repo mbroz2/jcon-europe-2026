@@ -50,12 +50,20 @@ Once you have a key, set it as an environment variable:
 
 Run your Quarkus app in **dev mode** from the project directory:
 
-```bash
-./mvnw quarkus:dev
-```
+=== "Linux / macOS"
+    ```bash
+    ./mvnw quarkus:dev
+    ```
+
+=== "Windows"
+    ```cmd
+    mvnw quarkus:dev
+    ```
 
 Dev mode automatically recompiles your code on every change.
 Your app will be available at http://localhost:8080/.
+
+All data is stored in-memory, so restarting the application will reset the data to its initial state.
 
 !!! warning "Switching steps"
     Stop the running application (Ctrl+C) before starting the next step.
@@ -86,11 +94,19 @@ cd quarkus-workshop-langchain4j
 
 ### Direct Download
 
-```shell
-curl -L -o workshop.zip https://github.com/quarkusio/quarkus-workshop-langchain4j/archive/refs/heads/main.zip
-unzip workshop.zip
-cd quarkus-workshop-langchain4j-main
-```
+=== "Linux / macOS"
+    ```bash
+    curl -L -o workshop.zip https://github.com/quarkusio/quarkus-workshop-langchain4j/archive/refs/heads/main.zip
+    unzip workshop.zip
+    cd quarkus-workshop-langchain4j-main
+    ```
+
+=== "Windows PowerShell"
+    ```powershell
+    Invoke-WebRequest -Uri https://github.com/quarkusio/quarkus-workshop-langchain4j/archive/refs/heads/main.zip -OutFile workshop.zip
+    Expand-Archive workshop.zip -DestinationPath .
+    cd quarkus-workshop-langchain4j-main
+    ```
 
 ---
 

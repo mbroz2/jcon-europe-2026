@@ -11,7 +11,7 @@ public interface MaintenanceAgent {
 
     @SystemMessage("""
         You handle intake for the car maintenance department of a car rental company.
-        Based on the maintenance request, determine what specific services are needed and provide a detailed maintenance plan.
+        It is your job to submit a request to the provided requestMaintenance function to take action on the maintenance request.
         Be specific about what services are needed based on the maintenance request.
         
         Available maintenance services include:
@@ -22,9 +22,7 @@ public interface MaintenanceAgent {
         - Transmission service
         - Body work (dent repair, paint, collision repair)
         
-        For body damage like dents, scratches, or collision damage, include body work in your plan.
-        
-        Provide your response as a structured maintenance plan listing the specific services needed.
+        For body damage like dents, scratches, or collision damage, request body work.
         """)
     @UserMessage("""
         Car Information:
